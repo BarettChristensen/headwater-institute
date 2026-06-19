@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Headwater Reading Room — a curated canon of the books that underpin the Agency Model, annotated by Barrett Christensen. Every book we teach. Every book we trust.">
+<title>The Reading Room — Headwater Institute</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --parchment:   #F7F4EF;
+  --parchment2:  #EDE9E1;
+  --parchment3:  #E2DDD4;
+  --ink:         #0D0F14;
+  --ink2:        #3D3830;
+  --ink3:        #6B6358;
+  --gold:        #C8A86E;
+  --gold2:       #A88A50;
+  --gold-light:  #F0E8D6;
+  --sage:        #7B9E87;
+  --sage-light:  #EEF4F0;
+  --sage-dark:   #4A6B56;
+  --border:      rgba(61,56,48,0.12);
+  --border-gold: rgba(200,168,110,0.3);
+
+  /* shelf colors */
+  --canon:        #C8A86E;
+  --leadership:   #7B8FC8;
+  --marriage:     #C87BA8;
+  --athletic:     #7BB8C4;
+  --youth:        #8BC47B;
+  --originals:    #C4956B;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(247,244,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav-mark-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink3);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+.nav-cta {
+  padding: 9px 18px;
+  border: 1px solid var(--border-gold);
+  color: var(--gold2) !important;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--ink) !important;
+  border-color: var(--gold);
+}
+
+/* ── PAGE HERO ── */
+#page-hero {
+  padding: 120px 48px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 16px;
+}
+
+.page-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 7vw, 80px);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.page-hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.page-hero-body {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink2);
+  font-weight: 300;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.page-hero-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--parchment2);
+}
+
+.page-hero-note a {
+  color: var(--sage-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.page-hero-note a:hover { color: var(--sage); }
+
+/* ── SHELF NAV ── */
+#shelf-nav {
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+  background: rgba(247,244,239,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.shelf-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.shelf-nav-inner::-webkit-scrollbar { display: none; }
+
+.shelf-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  height: 48px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.shelf-tab:hover { color: var(--ink); }
+.shelf-tab.active { color: var(--ink); }
+
+.shelf-tab-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.shelf-tab[data-shelf="canon"] { }
+.shelf-tab[data-shelf="canon"].active { border-bottom-color: var(--canon); color: var(--gold2); }
+.shelf-tab[data-shelf="leadership"].active { border-bottom-color: var(--leadership); color: #4A5A9A; }
+.shelf-tab[data-shelf="marriage"].active { border-bottom-color: var(--marriage); color: #8A4A78; }
+.shelf-tab[data-shelf="athletic"].active { border-bottom-color: var(--athletic); color: #3A7A8A; }
+.shelf-tab[data-shelf="youth"].active { border-bottom-color: var(--youth); color: var(--sage-dark); }
+.shelf-tab[data-shelf="originals"].active { border-bottom-color: var(--originals); color: #8A5030; }
+
+/* ── MAIN LAYOUT ── */
+#store-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 120px;
+}
+
+/* ── SHELF SECTION ── */
+.shelf-section {
+  padding: 72px 0 0;
+}
+
+.shelf-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid;
+}
+
+.shelf-header.canon { border-color: var(--canon); }
+.shelf-header.leadership { border-color: var(--leadership); }
+.shelf-header.marriage { border-color: var(--marriage); }
+.shelf-header.athletic { border-color: var(--athletic); }
+.shelf-header.youth { border-color: var(--youth); }
+.shelf-header.originals { border-color: var(--originals); }
+
+.shelf-title-group { }
+
+.shelf-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.shelf-header.canon .shelf-eyebrow { color: var(--gold2); }
+.shelf-header.leadership .shelf-eyebrow { color: #4A5A9A; }
+.shelf-header.marriage .shelf-eyebrow { color: #8A4A78; }
+.shelf-header.athletic .shelf-eyebrow { color: #3A7A8A; }
+.shelf-header.youth .shelf-eyebrow { color: var(--sage-dark); }
+.shelf-header.originals .shelf-eyebrow { color: #8A5030; }
+
+.shelf-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.shelf-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink3);
+  max-width: 440px;
+  text-align: right;
+  font-weight: 300;
+}
+
+/* ── BOOK GRID ── */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+/* ── BOOK CARD ── */
+.book-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.book-card:hover { transform: translateY(-3px); }
+.book-card:hover .book-cover { box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 14px;
+}
+
+/* Designed book covers — each unique */
+.book-cover-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 14px;
+}
+
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.cover-author {
+  font-family: 'Space Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.book-cover-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+/* Canon number badges */
+.badge-canon {
+  background: rgba(200,168,110,0.2);
+  color: #C8A86E;
+  border: 1px solid rgba(200,168,110,0.4);
+}
+
+.book-info { }
+
+.book-title-small {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.book-author-small {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--ink3);
+  margin-bottom: 8px;
+}
+
+.book-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.book-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 1px;
+  background: var(--parchment2);
+  color: var(--ink3);
+}
+
+.book-read-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.book-card:hover .book-read-link { color: var(--gold2); }
+.book-read-link::after { content: '↗'; }
+
+/* ── ANNOTATION MODAL ── */
+#annotation-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#annotation-modal.open { pointer-events: all; }
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,15,20,0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+#annotation-modal.open .modal-backdrop { opacity: 1; }
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  background: var(--parchment);
+  border-radius: 4px 4px 0 0;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  margin: 0 auto;
+}
+
+#annotation-modal.open .modal-panel {
+  transform: translateY(0);
+}
+
+.modal-panel::-webkit-scrollbar { width: 3px; }
+.modal-panel::-webkit-scrollbar-thumb { background: var(--border); }
+
+.modal-drag-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--parchment3);
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+.modal-inner {
+  padding: 24px 48px 56px;
+}
+
+.modal-shelf-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.modal-book-header {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-cover {
+  width: 100px;
+  aspect-ratio: 2/3;
+  border-radius: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.modal-cover .book-cover-inner {
+  padding: 10px 9px;
+}
+
+.modal-cover .cover-title { font-size: 10px; }
+.modal-cover .cover-author { font-size: 5px; }
+
+.modal-book-meta { }
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.modal-author {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--ink3);
+  margin-bottom: 16px;
+}
+
+.modal-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.modal-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 1px;
+}
+
+.modal-buy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 20px;
+  border-radius: 2px;
+  font-weight: 700;
+  transition: all 0.2s;
+  background: var(--ink);
+  color: var(--parchment);
+}
+.modal-buy-btn:hover { background: var(--ink2); transform: translateY(-1px); }
+.modal-buy-btn::after { content: '↗'; }
+
+.modal-annotation-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-annotation-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-gold);
+}
+
+.modal-annotation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.modal-annotation p { margin-bottom: 18px; }
+.modal-annotation p:last-child { margin-bottom: 0; }
+
+.modal-annotation strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.modal-annotation em {
+  font-style: italic;
+  color: var(--gold2);
+}
+
+.modal-what-to-read {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: var(--parchment2);
+  border-radius: 2px;
+  border-left: 3px solid var(--gold);
+}
+
+.modal-wtr-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 10px;
+}
+
+.modal-wtr-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--ink3);
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 2;
+}
+.modal-close:hover { background: var(--parchment2); color: var(--ink); }
+
+/* ── BOOKSHOP CTA ── */
+.bookshop-cta {
+  margin: 60px 0 0;
+  padding: 40px 48px;
+  background: var(--ink);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.bookshop-cta-text { }
+
+.bookshop-cta-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,244,239,0.4);
+  margin-bottom: 8px;
+}
+
+.bookshop-cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #F7F4EF;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.bookshop-cta-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(247,244,239,0.5);
+  font-weight: 300;
+  max-width: 440px;
+}
+
+.bookshop-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 24px;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 2px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.bookshop-cta-btn:hover { background: #B8984E; }
+.bookshop-cta-btn::after { content: '↗'; }
+
+/* ── READING LIST DOWNLOAD ── */
+.reading-list-strip {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: var(--gold-light);
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.reading-list-text {
+  font-size: 14px;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.reading-list-text strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.reading-list-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 9px 16px;
+  border: 1px solid var(--gold2);
+  color: var(--gold2);
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.reading-list-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: #080A0F;
+  padding: 48px;
+  border-top: 1px solid rgba(247,244,239,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.footer-logo-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-legal {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(247,244,239,0.2);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  #page-hero { padding: 100px 20px 60px; }
+  .shelf-nav-inner { padding: 0 20px; }
+  #store-main { padding: 0 20px 80px; }
+  .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+  .modal-inner { padding: 20px 24px 48px; }
+  .modal-book-header { grid-template-columns: 80px 1fr; gap: 18px; }
+  .bookshop-cta { flex-direction: column; padding: 28px 24px; }
+  .reading-list-strip { flex-direction: column; align-items: flex-start; }
+  footer { padding: 32px 20px; }
+  .shelf-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .shelf-desc { text-align: left; max-width: 100%; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="/" class="nav-mark"><img src="/assets/headwater-mark-dark-nav.png" alt="" class="nav-mark-icon">Headwater Institute</a>
+  <ul class="nav-links">
+    <li><a href="/model">The Model</a></li>
+    <li><a href="/programs">Programs</a></li>
+    <li><a href="/store" style="color:var(--gold2)">Reading Room</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact" class="nav-cta">Begin a Conversation</a></li>
+  </ul>
+</nav>
+
+<!-- ══ PAGE HERO ══ -->
+<div id="page-hero">
+  <div class="page-hero-eyebrow">Headwater Institute · The Reading Room</div>
+  <h1 class="page-hero-title">Every book we teach.<br><em>Every book we trust.</em></h1>
+  <p class="page-hero-body">This is not a bookstore. It is a curated canon — the intellectual foundation of the Agency Model, organized by shelf and annotated by Barrett Christensen. Every title here is one we assign, teach, and believe in. We read these before the expedition. We return to them after.</p>
+  <span class="page-hero-note">
+    Purchases support independent booksellers via &nbsp;<a href="https://bookshop.org" target="_blank" rel="noopener">Bookshop.org</a>&nbsp; — and fund the Headwater Gives scholarship program.
+  </span>
+</div>
+
+<!-- ══ SHELF NAVIGATION ══ -->
+<div id="shelf-nav">
+  <div class="shelf-nav-inner">
+    <a href="#canon" class="shelf-tab active" data-shelf="canon">
+      <span class="shelf-tab-dot" style="background:var(--canon)"></span>
+      The Core Canon
+    </a>
+    <a href="#leadership" class="shelf-tab" data-shelf="leadership">
+      <span class="shelf-tab-dot" style="background:var(--leadership)"></span>
+      Leadership
+    </a>
+    <a href="#marriage" class="shelf-tab" data-shelf="marriage">
+      <span class="shelf-tab-dot" style="background:var(--marriage)"></span>
+      Marriage &amp; Relationship
+    </a>
+    <a href="#athletic" class="shelf-tab" data-shelf="athletic">
+      <span class="shelf-tab-dot" style="background:var(--athletic)"></span>
+      Athletic Performance
+    </a>
+    <a href="#youth" class="shelf-tab" data-shelf="youth">
+      <span class="shelf-tab-dot" style="background:var(--youth)"></span>
+      For Young People
+    </a>
+    <a href="#originals" class="shelf-tab" data-shelf="originals">
+      <span class="shelf-tab-dot" style="background:var(--originals)"></span>
+      Headwater Originals
+    </a>
+  </div>
+</div>
+
+<!-- ══ STORE MAIN ══ -->
+<div id="store-main">
+
+  <!-- ── CANON SHELF ── -->
+  <section class="shelf-section" id="canon">
+    <div class="shelf-header canon">
+      <div class="shelf-title-group">
+        <div class="shelf-eyebrow">The Core Canon</div>
+        <div class="shelf-title">Seven works. One source.</div>
+      </div>
+      <div class="shelf-desc">The intellectual foundation of the Agency Model. Seven works that together constitute an unassailable argument for human agency — philosophical, practical, scientific, cognitive, psychological, clinical, and strategic.</div>
+    </div>
+
+    <div class="reading-list-strip">
+      <div class="reading-list-text"><strong>The Headwater Pre-Expedition Reading List</strong> — all seven canon works, in recommended reading order, with Barrett's annotations.</div>
+      <a href="#" class="reading-list-btn">Download PDF ↓</a>
+    </div>
+
+    <div class="book-grid" style="margin-top:32px">
+
+      <!-- Frankl -->
+      <div class="book-card" onclick="openAnnotation('frankl')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1a1410 0%,#2d2218 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C8A86E;font-size:13px">Man's Search for Meaning</div>
+            <div class="cover-author" style="color:rgba(200,168,110,0.6)">Viktor Frankl</div>
+          </div>
+          <div class="book-cover-badge badge-canon">01</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Man's Search for Meaning</div>
+          <div class="book-author-small">Viktor Frankl · 1946</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(200,168,110,0.12);color:var(--gold2)">Philosophical Foundation</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <!-- Oz Principle -->
+      <div class="book-card" onclick="openAnnotation('oz')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0f1f0f 0%,#1a331a 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7B9E87;font-size:12px">The Oz Principle</div>
+            <div class="cover-author" style="color:rgba(123,158,135,0.6)">Connors, Smith &amp; Hickman</div>
+          </div>
+          <div class="book-cover-badge badge-canon">02</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Oz Principle</div>
+          <div class="book-author-small">Connors, Smith &amp; Hickman · 1994</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(123,158,135,0.12);color:var(--sage-dark)">Organizational Tool</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <!-- Covey -->
+      <div class="book-card" onclick="openAnnotation('covey')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0f1520 0%,#182030 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7BB8C4;font-size:11px">The 7 Habits of Highly Effective People</div>
+            <div class="cover-author" style="color:rgba(123,184,196,0.6)">Stephen R. Covey</div>
+          </div>
+          <div class="book-cover-badge badge-canon">03</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The 7 Habits</div>
+          <div class="book-author-small">Stephen R. Covey · 1989</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Daily Architecture</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <!-- Bandura -->
+      <div class="book-card" onclick="openAnnotation('bandura')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#18101f 0%,#2a1835 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#B87BB8;font-size:11px">Self-Efficacy: The Exercise of Control</div>
+            <div class="cover-author" style="color:rgba(184,123,184,0.6)">Albert Bandura</div>
+          </div>
+          <div class="book-cover-badge badge-canon">04</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Self-Efficacy</div>
+          <div class="book-author-small">Albert Bandura · 1997</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(184,123,184,0.1);color:#6A3A8A">Scientific Validation</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <!-- Dweck -->
+      <div class="book-card" onclick="openAnnotation('dweck')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#201508 0%,#332010 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C8A870;font-size:14px">Mindset</div>
+            <div class="cover-author" style="color:rgba(200,168,112,0.6)">Carol S. Dweck</div>
+          </div>
+          <div class="book-cover-badge badge-canon">05</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Mindset</div>
+          <div class="book-author-small">Carol S. Dweck · 2006</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(200,168,112,0.1);color:#8A6030">Cognitive Prerequisite</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <!-- Seligman -->
+      <div class="book-card" onclick="openAnnotation('seligman')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1f0f0f 0%,#301818 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C87B7B;font-size:12px">Learned Optimism</div>
+            <div class="cover-author" style="color:rgba(200,123,123,0.6)">Martin E. P. Seligman</div>
+          </div>
+          <div class="book-cover-badge badge-canon">06</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Learned Optimism</div>
+          <div class="book-author-small">Martin Seligman · 1991</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(200,123,123,0.1);color:#8A3030">The Downside Map</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <!-- Christensen -->
+      <div class="book-card" onclick="openAnnotation('christensen')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0f1520 0%,#0f2028 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7B9EB8;font-size:11px">How Will You Measure Your Life?</div>
+            <div class="cover-author" style="color:rgba(123,158,184,0.6)">Clayton M. Christensen</div>
+          </div>
+          <div class="book-cover-badge badge-canon">07</div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">How Will You Measure Your Life?</div>
+          <div class="book-author-small">Clayton Christensen · 2012</div>
+          <div class="book-tags">
+            <span class="book-tag" style="background:rgba(123,158,184,0.1);color:#3A5A7A">Strategic Bridge</span>
+          </div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── LEADERSHIP SHELF ── -->
+  <section class="shelf-section" id="leadership">
+    <div class="shelf-header leadership">
+      <div class="shelf-title-group">
+        <div class="shelf-eyebrow">Leadership</div>
+        <div class="shelf-title">The cluster library.</div>
+      </div>
+      <div class="shelf-desc">One essential book from each of the seven leadership clusters in the Agency Wheel. The thinkers who built the models we teach.</div>
+    </div>
+    <div class="book-grid">
+
+      <div class="book-card" onclick="openAnnotation('heifetz')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#101825 0%,#1a2840 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7B9EB8;font-size:11px">Leadership Without Easy Answers</div>
+            <div class="cover-author" style="color:rgba(123,158,184,0.6)">Ronald Heifetz</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Leadership Without Easy Answers</div>
+          <div class="book-author-small">Ronald Heifetz · 1994</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(139,196,123,0.1);color:var(--sage-dark)">Systems &amp; Adaptive</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('goleman')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#101825 0%,#182030 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7BB8C4;font-size:12px">Emotional Intelligence</div>
+            <div class="cover-author" style="color:rgba(123,184,196,0.6)">Daniel Goleman</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Emotional Intelligence</div>
+          <div class="book-author-small">Daniel Goleman · 1995</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Psychological</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('greenleaf')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1a0f08 0%,#2d1a0f 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#E07B5A;font-size:11px">The Servant as Leader</div>
+            <div class="cover-author" style="color:rgba(224,123,90,0.6)">Robert K. Greenleaf</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Servant as Leader</div>
+          <div class="book-author-small">Robert K. Greenleaf · 1970</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(224,123,90,0.1);color:#8A4020">Transformational</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('edmondson')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#150f1f 0%,#221830 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#B87BB8;font-size:11px">The Fearless Organization</div>
+            <div class="cover-author" style="color:rgba(184,123,184,0.6)">Amy C. Edmondson</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Fearless Organization</div>
+          <div class="book-author-small">Amy Edmondson · 2018</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(184,123,184,0.1);color:#6A3A8A">Relational</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('george')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0f1810 0%,#182818 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#8BC47B;font-size:12px">Authentic Leadership</div>
+            <div class="cover-author" style="color:rgba(139,196,123,0.6)">Bill George</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Authentic Leadership</div>
+          <div class="book-author-small">Bill George · 2003</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(139,196,123,0.1);color:var(--sage-dark)">Transformational</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('snowden')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1510 0%,#122018 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7B9E87;font-size:11px">A Leader's Framework for Decision Making</div>
+            <div class="cover-author" style="color:rgba(123,158,135,0.6)">Snowden &amp; Boone</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Cynefin: Weaving Sense-Making</div>
+          <div class="book-author-small">Dave Snowden · 2023</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,158,135,0.1);color:var(--sage-dark)">Systems</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('lencioni')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1a1008 0%,#2a1a10 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C8A86E;font-size:11px">The Five Dysfunctions of a Team</div>
+            <div class="cover-author" style="color:rgba(200,168,110,0.6)">Patrick Lencioni</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Five Dysfunctions of a Team</div>
+          <div class="book-author-small">Patrick Lencioni · 2002</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(200,168,110,0.1);color:var(--gold2)">Relational</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── MARRIAGE SHELF ── -->
+  <section class="shelf-section" id="marriage">
+    <div class="shelf-header marriage">
+      <div class="shelf-title-group">
+        <div class="shelf-eyebrow">Marriage &amp; Relationship</div>
+        <div class="shelf-title">The science of love that lasts.</div>
+      </div>
+      <div class="shelf-desc">The research canon that underpins the Headwater marriage retreat. The best science available on what makes love flourish — and what destroys it.</div>
+    </div>
+    <div class="book-grid">
+
+      <div class="book-card" onclick="openAnnotation('gottman')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1f0f18 0%,#301825 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C87BA8;font-size:11px">The Seven Principles for Making Marriage Work</div>
+            <div class="cover-author" style="color:rgba(200,123,168,0.6)">John Gottman</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Seven Principles for Making Marriage Work</div>
+          <div class="book-author-small">John Gottman · 1999</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(200,123,168,0.1);color:#8A3068">Foundation Text</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('johnson')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#200f18 0%,#321825 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#D48AAA;font-size:13px">Hold Me Tight</div>
+            <div class="cover-author" style="color:rgba(212,138,170,0.6)">Sue Johnson</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Hold Me Tight</div>
+          <div class="book-author-small">Sue Johnson · 2008</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(200,123,168,0.1);color:#8A3068">Emotionally Focused Therapy</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('tatkin')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#180f20 0%,#281830 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C8A0C8;font-size:12px">Wired for Love</div>
+            <div class="cover-author" style="color:rgba(200,160,200,0.6)">Stan Tatkin</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Wired for Love</div>
+          <div class="book-author-small">Stan Tatkin · 2011</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(200,123,168,0.1);color:#8A3068">Attachment Science</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('hendrix')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1f1018 0%,#301820 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#D89AB0;font-size:11px">Getting the Love You Want</div>
+            <div class="cover-author" style="color:rgba(216,154,176,0.6)">Harville Hendrix</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Getting the Love You Want</div>
+          <div class="book-author-small">Harville Hendrix · 1988</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(200,123,168,0.1);color:#8A3068">Imago Therapy</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('brown-daring')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1a0f1a 0%,#281828 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#B888C8;font-size:13px">Daring Greatly</div>
+            <div class="cover-author" style="color:rgba(184,136,200,0.6)">Brené Brown</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Daring Greatly</div>
+          <div class="book-author-small">Brené Brown · 2012</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(200,123,168,0.1);color:#8A3068">Vulnerability</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ATHLETIC SHELF ── -->
+  <section class="shelf-section" id="athletic">
+    <div class="shelf-header athletic">
+      <div class="shelf-title-group">
+        <div class="shelf-eyebrow">Athletic Performance</div>
+        <div class="shelf-title">The inner game of everything.</div>
+      </div>
+      <div class="shelf-desc">The performance psychology books that underpin the Headwater Athletic program. What separates good from great has always been mostly mental.</div>
+    </div>
+    <div class="book-grid">
+
+      <div class="book-card" onclick="openAnnotation('gallwey')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1820 0%,#102030 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7BB8C4;font-size:12px">The Inner Game of Tennis</div>
+            <div class="cover-author" style="color:rgba(123,184,196,0.6)">W. Timothy Gallwey</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Inner Game of Tennis</div>
+          <div class="book-author-small">W. Timothy Gallwey · 1974</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Performance Classic</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('coyle')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#101820 0%,#182830 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#88B8D0;font-size:13px">The Talent Code</div>
+            <div class="cover-author" style="color:rgba(136,184,208,0.6)">Daniel Coyle</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Talent Code</div>
+          <div class="book-author-small">Daniel Coyle · 2009</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Skill Development</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('duckworth')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0f1820 0%,#182535 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#6AAAC8;font-size:14px">Grit</div>
+            <div class="cover-author" style="color:rgba(106,170,200,0.6)">Angela Duckworth</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Grit</div>
+          <div class="book-author-small">Angela Duckworth · 2016</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Perseverance</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('peak')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1820 0%,#0f2030 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7BACCF;font-size:12px">Peak Performance</div>
+            <div class="cover-author" style="color:rgba(123,172,207,0.6)">Stulberg &amp; Magness</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Peak Performance</div>
+          <div class="book-author-small">Stulberg &amp; Magness · 2017</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Elite Performance</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('syed')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#101820 0%,#182535 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#8ABFD8;font-size:13px">Bounce</div>
+            <div class="cover-author" style="color:rgba(138,191,216,0.6)">Matthew Syed</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Bounce</div>
+          <div class="book-author-small">Matthew Syed · 2010</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(123,184,196,0.1);color:#3A7A8A">Mastery</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── YOUTH SHELF ── -->
+  <section class="shelf-section" id="youth">
+    <div class="shelf-header youth">
+      <div class="shelf-title-group">
+        <div class="shelf-eyebrow">For Young People</div>
+        <div class="shelf-title">The ideas, made accessible.</div>
+      </div>
+      <div class="shelf-desc">For the Agency Scholars and everyone else at the beginning. These books carry the same ideas as the canon — in the language of a life just starting.</div>
+    </div>
+    <div class="book-grid">
+
+      <div class="book-card" onclick="openAnnotation('yes-to-life')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1a10 0%,#102518 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#8BC47B;font-size:12px">Yes to Life: In Spite of Everything</div>
+            <div class="cover-author" style="color:rgba(139,196,123,0.6)">Viktor Frankl</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Yes to Life</div>
+          <div class="book-author-small">Viktor Frankl · 1946 / 2020</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(139,196,123,0.1);color:var(--sage-dark)">Start Here</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('dweck-youth')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#102010 0%,#183018 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#7BC87B;font-size:13px">Mindset</div>
+            <div class="cover-author" style="color:rgba(123,200,123,0.6)">Carol S. Dweck</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Mindset (Young Readers Ed.)</div>
+          <div class="book-author-small">Carol S. Dweck</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(139,196,123,0.1);color:var(--sage-dark)">Growth Mindset</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('duckworth-youth')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0a1a12 0%,#102015 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#6EC87B;font-size:13px">Grit to Great</div>
+            <div class="cover-author" style="color:rgba(110,200,123,0.6)">Duckworth / Shortsleeve</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">Grit to Great</div>
+          <div class="book-author-small">Linda Kaplan Thaler · 2015</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(139,196,123,0.1);color:var(--sage-dark)">Perseverance</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('brown-youth')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0f1f12 0%,#182818 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#88C898;font-size:11px">The Gifts of Imperfection</div>
+            <div class="cover-author" style="color:rgba(136,200,152,0.6)">Brené Brown</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Gifts of Imperfection</div>
+          <div class="book-author-small">Brené Brown · 2010</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(139,196,123,0.1);color:var(--sage-dark)">Identity</span></div>
+          <button class="book-read-link">Barrett's annotation</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ORIGINALS SHELF ── -->
+  <section class="shelf-section" id="originals">
+    <div class="shelf-header originals">
+      <div class="shelf-title-group">
+        <div class="shelf-eyebrow">Headwater Originals</div>
+        <div class="shelf-title">From the source, directly.</div>
+      </div>
+      <div class="shelf-desc">Materials created by the Headwater Institute — the Agency Wheel print, the reading guide, the expedition field journal, and Barrett's forthcoming book.</div>
+    </div>
+    <div class="book-grid">
+
+      <div class="book-card" onclick="openAnnotation('wheel-print')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0D0F14 0%,#1a1810 100%);border:1px solid rgba(200,168,110,0.2)">
+          <div class="book-cover-inner" style="align-items:center;justify-content:center">
+            <svg viewBox="0 0 80 80" style="width:60px;height:60px;opacity:0.7">
+              <circle cx="40" cy="40" r="35" fill="none" stroke="#C8A86E" stroke-width="0.75" stroke-dasharray="3,3"/>
+              <circle cx="40" cy="40" r="20" fill="none" stroke="#C8A86E" stroke-width="0.5"/>
+              <circle cx="40" cy="40" r="8" fill="none" stroke="#C8A86E" stroke-width="1.5"/>
+              <text x="40" y="43" text-anchor="middle" font-family="serif" font-size="6" fill="#C8A86E" font-weight="600">Agency</text>
+              <line x1="40" y1="10" x2="40" y2="30" stroke="#C8A86E" stroke-width="0.5" opacity="0.5"/>
+              <line x1="40" y1="50" x2="40" y2="70" stroke="#C8A86E" stroke-width="0.5" opacity="0.5"/>
+              <line x1="10" y1="40" x2="30" y2="40" stroke="#C8A86E" stroke-width="0.5" opacity="0.5"/>
+              <line x1="50" y1="40" x2="70" y2="40" stroke="#C8A86E" stroke-width="0.5" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Agency Wheel — Fine Art Print</div>
+          <div class="book-author-small">Headwater Institute · 18×24"</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(196,149,107,0.1);color:#8A5030">Print</span><span class="book-tag" style="background:rgba(196,149,107,0.1);color:#8A5030">Coming Soon</span></div>
+          <button class="book-read-link">Learn more</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('field-journal')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#1a1208 0%,#2a1e10 100%)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:#C4956B;font-size:13px">The Headwater Field Journal</div>
+            <div class="cover-author" style="color:rgba(196,149,107,0.6)">For Expedition Participants</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small">The Headwater Field Journal</div>
+          <div class="book-author-small">Expedition Edition</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(196,149,107,0.1);color:#8A5030">Journal</span><span class="book-tag" style="background:rgba(196,149,107,0.1);color:#8A5030">Coming Soon</span></div>
+          <button class="book-read-link">Learn more</button>
+        </div>
+      </div>
+
+      <div class="book-card" onclick="openAnnotation('barrett-book')">
+        <div class="book-cover" style="background:linear-gradient(145deg,#0D0F14 0%,#181410 100%);border:1px solid rgba(200,168,110,0.15)">
+          <div class="book-cover-inner">
+            <div class="cover-title" style="color:rgba(200,168,110,0.4);font-size:13px;font-style:italic">The Headwater Book</div>
+            <div class="cover-author" style="color:rgba(200,168,110,0.25)">Barrett Christensen</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-title-small" style="color:var(--ink3)">The Book — In Development</div>
+          <div class="book-author-small">Barrett Christensen</div>
+          <div class="book-tags"><span class="book-tag" style="background:rgba(196,149,107,0.1);color:#8A5030">Forthcoming</span></div>
+          <button class="book-read-link">Join the waiting list</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── BOOKSHOP CTA ── -->
+  <div class="bookshop-cta">
+    <div class="bookshop-cta-text">
+      <div class="bookshop-cta-eyebrow">Powered by Bookshop.org</div>
+      <div class="bookshop-cta-title">Supporting independent booksellers. And Headwater Gives.</div>
+      <div class="bookshop-cta-body">Every purchase through our Reading Room supports independent bookstores across the country — and a portion of every sale flows directly to the Headwater Gives scholarship fund.</div>
+    </div>
+    <a href="https://bookshop.org" target="_blank" rel="noopener" class="bookshop-cta-btn">Browse on Bookshop.org</a>
+  </div>
+
+</div><!-- end store-main -->
+
+<!-- ══ ANNOTATION MODAL ══ -->
+<div id="annotation-modal">
+  <div class="modal-backdrop" onclick="closeAnnotation()"></div>
+  <div class="modal-panel">
+    <button class="modal-close" onclick="closeAnnotation()">×</button>
+    <div class="modal-drag-handle"></div>
+    <div class="modal-inner">
+      <div class="modal-shelf-label" id="modal-shelf-label"></div>
+      <div class="modal-book-header">
+        <div class="modal-cover" id="modal-cover"></div>
+        <div class="modal-book-meta">
+          <div class="modal-title" id="modal-title"></div>
+          <div class="modal-author" id="modal-author"></div>
+          <div class="modal-tags" id="modal-tags"></div>
+          <a id="modal-buy-btn" href="#" target="_blank" rel="noopener" class="modal-buy-btn">Get this book</a>
+        </div>
+      </div>
+      <div class="modal-annotation-label">Barrett's Annotation</div>
+      <div class="modal-annotation" id="modal-annotation"></div>
+      <div class="modal-what-to-read">
+        <div class="modal-wtr-label">What to Read For</div>
+        <div class="modal-wtr-text" id="modal-wtr"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <a href="/" class="footer-logo"><img src="/assets/headwater-mark-light-footer.png" alt="" class="footer-logo-icon">Headwater Institute</a>
+  <span class="footer-legal">© 2025 Headwater Institute · Portland, Oregon</span>
+</footer>
+
+<!-- ══ JAVASCRIPT ══ -->
+<script>
+
+// ── Book Data ──────────────────────────────────────────────────
+const BOOKS = {
+
+  frankl: {
+    shelf: 'The Core Canon · 01',
+    shelfColor: '#A88A50',
+    title: "Man's Search for Meaning",
+    author: 'Viktor Frankl · 1946',
+    tags: [{ label: 'Philosophical Foundation', color: 'rgba(200,168,110,0.15)', text: '#A88A50' }],
+    coverBg: 'linear-gradient(145deg,#1a1410 0%,#2d2218 100%)',
+    coverTitleColor: '#C8A86E',
+    coverTitle: "Man's Search for Meaning",
+    buyUrl: 'https://bookshop.org/a/headwater/9780807014271',
+    annotation: `<p>This is the book underneath all the others. Before there was a framework, before there was a vocabulary, before there was a Line or a loop or a model — there was Frankl, in Auschwitz, watching human beings choose.</p><p>Not what they chose to do. What they chose to <em>be</em>. In conditions designed with systematic precision to strip them of every external freedom, some prisoners retained the one freedom that no guard could confiscate: the freedom to choose their own attitude. To meet what was being done to them with dignity, or despair. With meaning, or with meaninglessness. The choice was always there. Most of them didn't see it. A few of them did. And the difference — Frankl documented this as a trained psychiatrist — was often the difference between survival and collapse.</p><p>That gap — between what happens to you and what you do next — is the entire Agency Model in one sentence. Everything else we teach is an elaboration of it.</p><p>Read this before anything else. Read it slowly. And when you reach the passage about the space between stimulus and response, stop. Set the book down. Sit with it for a while. Because what Frankl is describing is not a leadership theory or a psychological framework. It is the most important truth in human experience, documented from the most extreme conditions in which it has ever been tested.</p><p>If it survived Auschwitz, it will survive your inbox.</p>`,
+    wtr: "Read for the space between stimulus and response — pages 65–70 in most editions. Then read Part Two, 'Logotherapy in a Nutshell,' for the clinical framework. The first section about the camps is essential context, but the second section is where the model lives."
+  },
+
+  oz: {
+    shelf: 'The Core Canon · 02',
+    shelfColor: '#4A6B56',
+    title: 'The Oz Principle',
+    author: 'Roger Connors, Tom Smith & Craig Hickman · 1994',
+    tags: [{ label: 'Organizational Tool', color: 'rgba(123,158,135,0.15)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#0f1f0f 0%,#1a331a 100%)',
+    coverTitleColor: '#7B9E87',
+    coverTitle: 'The Oz Principle',
+    buyUrl: 'https://bookshop.org/a/headwater/9781591844358',
+    annotation: `<p>Frankl proved that the space of freedom exists. This book shows you what to do in it on a Tuesday morning when your project is failing and it would be very easy to blame the market.</p><p>Connors, Smith & Hickman took Frankl's philosophical insight — the kind of insight that changes how you see the world but doesn't always change how you behave in it — and gave it teeth. They gave it a Line. A vocabulary. A four-step practice: See It, Own It, Solve It, Do It. And a precise, nameable map of the below-the-line patterns that feel so natural and so justified: Blame, Abdicate, Shuffle, Hide.</p><p>What I find most powerful about this book — and I have read it more than once — is the naming effect. Before I had this vocabulary, I could feel when I was below the line. I couldn't say so. I couldn't name what was happening to me or around me in real time. After this book, I could. And naming a below-the-line pattern — "I'm blaming right now" — is itself an above-the-line act. The self-observation breaks the automaticity. The gap opens. The choice becomes available.</p><p>That is what this book does. It makes the invisible visible. In organizations, in teams, in any context where people face difficulty and either own their role in it or find someone else to blame.</p>`,
+    wtr: "Read Chapters 1–3 for the core framework. The Accountability Ladder in Chapter 4 is the most nuanced diagnostic tool in the book — read it twice. Chapter 6 on organizational culture is where the personal model becomes a leadership model."
+  },
+
+  covey: {
+    shelf: 'The Core Canon · 03',
+    shelfColor: '#3A7A8A',
+    title: 'The 7 Habits of Highly Effective People',
+    author: 'Stephen R. Covey · 1989',
+    tags: [{ label: 'Daily Architecture', color: 'rgba(123,184,196,0.12)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#0f1520 0%,#182030 100%)',
+    coverTitleColor: '#7BB8C4',
+    coverTitle: 'The 7 Habits of Highly Effective People',
+    buyUrl: 'https://bookshop.org/a/headwater/9781982137274',
+    annotation: `<p>Covey read Frankl and built a life's work on what he found there. He has said so explicitly. Habit 1 — Be Proactive — is Frankl's space of freedom made into a daily practice. The rest of the seven habits are what you build on top of it when you decide to live there consistently.</p><p>What this book adds to Frankl that Frankl himself doesn't provide is structure. The daily, habitual, repeatable architecture for living above the line — not just in crisis, not just in the moments when the stakes are so high that the choice is obvious, but in the ordinary Monday morning moments when it would be easy to coast, to react, to let circumstances drive.</p><p>The Circle of Influence versus the Circle of Concern is the single most teachable tool in the entire canon. I use it in every expedition. It takes thirty seconds to explain and a lifetime to practice. And it directly addresses the most common below-the-line pattern I see in executives: spending enormous energy worrying about things they cannot affect, while neglecting the things they can.</p><p>Read this as a sequel to Frankl. Frankl opens the space. Covey shows you how to live in it.</p>`,
+    wtr: "Start with the paradigm shift section — pages 1–45. Then read Habit 1 in full, including the proactivity language exercise. The Circle of Influence diagram (pages 81–85) is the single most useful page in the book. Return to Habits 4, 5, and 6 when you're ready to apply the model to relationships."
+  },
+
+  bandura: {
+    shelf: 'The Core Canon · 04',
+    shelfColor: '#6A3A8A',
+    title: 'Self-Efficacy: The Exercise of Control',
+    author: 'Albert Bandura · 1997',
+    tags: [{ label: 'Scientific Validation', color: 'rgba(184,123,184,0.12)', text: '#6A3A8A' }],
+    coverBg: 'linear-gradient(145deg,#18101f 0%,#2a1835 100%)',
+    coverTitleColor: '#B87BB8',
+    coverTitle: 'Self-Efficacy: The Exercise of Control',
+    buyUrl: 'https://bookshop.org/a/headwater/9780716728504',
+    annotation: `<p>Bandura is the scientist in the canon. If you are the person in the room who needs data before philosophy moves you — and every room has one, and sometimes that person is me — this is your book.</p><p>Self-efficacy is the belief in your own capability to perform the behaviors required to produce specific outcomes. It is not self-esteem. It is not optimism. It is a domain-specific, empirically measurable cognitive belief that consistently predicts performance, persistence, and resilience across virtually every domain that has been studied. And Bandura spent fifty years studying it.</p><p>The most important finding for what we do at Headwater: the most powerful source of self-efficacy is mastery experience — the direct, personal, embodied experience of successfully navigating a genuinely difficult challenge. Not encouragement. Not visualization. Not positive affirmation. The actual experience of doing something hard and succeeding.</p><p>This is why the wilderness works. Not because it is beautiful, though it is. Not because it is peaceful, though it has those moments. Because it is genuinely difficult in ways that cannot be faked, and succeeding in it builds the kind of self-efficacy that transfers back into organizational life, into relationships, into athletic performance, into the life of a young person who has never before had direct evidence that their effort produces results.</p>`,
+    wtr: "This is a dense academic text. Read Chapter 1 for the conceptual framework, Chapter 3 for the four sources of self-efficacy, and Chapter 10 for the collective efficacy research. Skip the domain-specific chapters unless that domain is directly relevant to you."
+  },
+
+  dweck: {
+    shelf: 'The Core Canon · 05',
+    shelfColor: '#8A6030',
+    title: 'Mindset: The New Psychology of Success',
+    author: 'Carol S. Dweck · 2006',
+    tags: [{ label: 'Cognitive Prerequisite', color: 'rgba(200,168,112,0.12)', text: '#8A6030' }],
+    coverBg: 'linear-gradient(145deg,#201508 0%,#332010 100%)',
+    coverTitleColor: '#C8A870',
+    coverTitle: 'Mindset',
+    buyUrl: 'https://bookshop.org/a/headwater/9780345472328',
+    annotation: `<p>The question underneath every other question in the Agency Model is this: what determines whether a person <em>believes</em> their capabilities are developable? Before you can choose above the line, you have to believe that choosing matters. Before Bandura's self-efficacy can develop, you need a belief system in which development is even possible. What is that belief system?</p><p>Dweck spent forty years answering this question. The answer is the mindset: the meta-belief about whether intelligence, talent, and character are fixed traits or developable capacities. Fixed mindset says: I am what I am, and hard things are tests of whether I'm adequate. Growth mindset says: I am what I choose to develop, and hard things are the mechanism of that development.</p><p>The fixed mindset is the cognitive architecture of below-the-line living. Not because fixed-mindset people are bad or weak — but because the fixed mindset makes the below-the-line patterns functionally necessary. If failure is identity, you must avoid it. If effort is evidence of inadequacy, you must minimize it. If feedback is verdict, you must defend against it. The BASH patterns are not character flaws. They are the rational self-protective behaviors of someone who has concluded, at a deep cognitive level, that their agency doesn't matter because their capability is fixed.</p><p>The growth mindset is what makes all the other models accessible.</p>`,
+    wtr: "Read Chapters 1–3 first — the core distinction, the research, and the implications. Chapter 4 on sports is the most vivid application and the most relevant for the athletic program. The section on praise (Chapter 2, pages 175–180) is the single most practically important finding in the book for facilitators and coaches."
+  },
+
+  seligman: {
+    shelf: 'The Core Canon · 06',
+    shelfColor: '#8A3030',
+    title: 'Learned Optimism',
+    author: 'Martin E. P. Seligman · 1991',
+    tags: [{ label: 'The Downside Map', color: 'rgba(200,123,123,0.12)', text: '#8A3030' }],
+    coverBg: 'linear-gradient(145deg,#1f0f0f 0%,#301818 100%)',
+    coverTitleColor: '#C87B7B',
+    coverTitle: 'Learned Optimism',
+    buyUrl: 'https://bookshop.org/a/headwater/9781400078394',
+    annotation: `<p>Every other book in this canon assumes you can choose. Seligman's genius — and the reason he belongs here — is that he mapped what happens when you can't. Not won't. <em>Can't.</em></p><p>Learned helplessness is the psychological and neurological state produced by repeated experience of uncontrollable outcomes. When the connection between your actions and their consequences is broken — when you push and pull and try and fail and try again and still nothing changes — you stop trying. Not because you're lazy. Because your brain has learned, accurately, that your actions don't matter. And that learning persists even when the environment changes. Even when control is returned. Even when someone tells you that this time it will be different.</p><p>I read this book thinking about foster care graduates. I thought about executives who have been through corporate restructurings where effort genuinely did not determine outcomes. I thought about athletes whose careers have been shaped by injuries they couldn't control. I thought about couples who have tried and failed so many times that trying has stopped feeling possible.</p><p>This book is the downside map. It shows exactly what the wilderness is interrupting when it places someone in a challenging situation, scaffolds their success, and delivers the mastery experience that reactivates the belief that their choices matter.</p><p>Read it. Then take someone into the wilderness. Watch what happens.</p>`,
+    wtr: "Start with Part One (Chapters 1–4) for the learned helplessness research and its human applications. Chapter 6 on explanatory style is the core practical framework. The ABCDE model in Chapter 12 is what you'll use in every debrief — read it carefully and practice it before you facilitate."
+  },
+
+  christensen: {
+    shelf: 'The Core Canon · 07',
+    shelfColor: '#3A5A7A',
+    title: 'How Will You Measure Your Life?',
+    author: 'Clayton M. Christensen · 2012',
+    tags: [{ label: 'Strategic Bridge', color: 'rgba(123,158,184,0.12)', text: '#3A5A7A' }],
+    coverBg: 'linear-gradient(145deg,#0f1520 0%,#0f2028 100%)',
+    coverTitleColor: '#7B9EB8',
+    coverTitle: 'How Will You Measure Your Life?',
+    buyUrl: 'https://bookshop.org/a/headwater/9780062102416',
+    annotation: `<p>Christensen is in this canon because of the executive who won't be moved by anything else. The one who has heard too many inspiring frameworks, who is suspicious of anything that feels like therapy dressed up as productivity, who needs someone to speak his language before he will listen.</p><p>Christensen speaks that language. He is the man who gave the world the Innovator's Dilemma — the most influential business theory of the last thirty years. And in this final book, he applied the same rigorous analytical frameworks to the question that the other canon works approach from the inside: how are you allocating your most finite resources? And is that allocation producing the life you actually intend?</p><p>The marginal cost fallacy is the insight that has stayed with me longest. How good people end up below the line not through dramatic failure but through the accumulation of individually defensible exceptions — each one a rational-seeming compromise, each one making the next one easier, until the pattern that was supposed to be exceptional has become the character. This is not a dramatic process. It is a quiet one. And it is the reason the 100% rule matters: it is easier to hold to your standards all the time than most of the time.</p><p>Christensen died in 2020. He knew he was dying when he wrote the last chapters of this book. The testimony in those final pages — from one of the most analytically rigorous minds of his generation — is that the metric that matters is not the one on any performance review. It is the people. The lives touched. Read it as a man who means every word, because he did.</p>`,
+    wtr: "Read Chapter 3 on deliberate vs. emergent strategy first — it is the most immediately applicable framework. Then Chapter 8 on the marginal cost fallacy, which is the most important insight in the book. Read the final chapter last, and slowly."
+  },
+
+  heifetz: {
+    shelf: 'Leadership · Systems & Adaptive',
+    shelfColor: '#4A6B56',
+    title: 'Leadership Without Easy Answers',
+    author: 'Ronald Heifetz · 1994',
+    tags: [{ label: 'Adaptive Leadership', color: 'rgba(139,196,123,0.1)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#101825 0%,#1a2840 100%)',
+    coverTitleColor: '#7B9EB8',
+    coverTitle: 'Leadership Without Easy Answers',
+    buyUrl: 'https://bookshop.org/a/headwater/9780674518582',
+    annotation: `<p>Heifetz drew a line that changed everything in leadership studies: the line between technical problems and adaptive challenges. Technical problems have solutions. You hire an expert, apply the solution, the problem goes away. Adaptive challenges are different. They require changes in values, beliefs, or behaviors — which means the people facing them are also part of the problem. You cannot solve an adaptive challenge from outside the system. You can only mobilize the people inside it to do the work.</p><p>This is the most honest book about what leadership actually is. Not the management of operations or the inspiration of followers — but the willingness to hold people in the discomfort of adaptive work long enough for something real to change. The wilderness, designed well, is one of the best available environments for exactly this: placing people in situations where their existing competencies are insufficient, where the technical answers don't work, and where the only path forward is the genuine development of new capacity.</p>`,
+    wtr: "Read Part One for the distinction between technical and adaptive work — this is the foundational concept. The 'balcony and dance floor' metaphor in Chapter 9 is the most practically useful image in the book for leaders trying to see the systems they are embedded in."
+  },
+
+  goleman: {
+    shelf: 'Leadership · Psychological',
+    shelfColor: '#3A7A8A',
+    title: 'Emotional Intelligence',
+    author: 'Daniel Goleman · 1995',
+    tags: [{ label: 'Emotional Intelligence', color: 'rgba(123,184,196,0.1)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#101825 0%,#182030 100%)',
+    coverTitleColor: '#7BB8C4',
+    coverTitle: 'Emotional Intelligence',
+    buyUrl: 'https://bookshop.org/a/headwater/9780553383713',
+    annotation: `<p>Goleman's great contribution was to insist that the feeling element of the T·F·A loop is not noise to be managed but data to be read. IQ predicts only a fraction of what determines success in life and in leadership — EQ, the emotional intelligence to accurately perceive and navigate the feelings of oneself and others, predicts far more. This was not obvious in 1995 when the book was published. It is obvious now, in part because of this book.</p><p>For the wilderness curriculum, EQ becomes viscerally testable. Who reads the group's emotional climate accurately on day three? Who can regulate their own anxiety at the summit approach? Who can repair a relationship after a conflict in tight quarters? These are EQ skills — and the wilderness makes them visible and teachable in ways that no classroom can replicate.</p>`,
+    wtr: "Part One on the nature of emotional intelligence is essential. Chapter 5 on self-regulation and Chapter 7 on empathy are the most directly applicable to leadership. 'Primal Leadership' by Goleman, Boyatzis, and McKee is the superior book for organizational application — consider reading both."
+  },
+
+  greenleaf: {
+    shelf: 'Leadership · Transformational',
+    shelfColor: '#8A4020',
+    title: 'The Servant as Leader',
+    author: 'Robert K. Greenleaf · 1970',
+    tags: [{ label: 'Servant Leadership', color: 'rgba(224,123,90,0.1)', text: '#8A4020' }],
+    coverBg: 'linear-gradient(145deg,#1a0f08 0%,#2d1a0f 100%)',
+    coverTitleColor: '#E07B5A',
+    coverTitle: 'The Servant as Leader',
+    buyUrl: 'https://bookshop.org/a/headwater/9780809125265',
+    annotation: `<p>This is a short essay — fewer than fifty pages — that launched one of the most important leadership frameworks of the twentieth century. Greenleaf read Herman Hesse's Journey to the East, in which the servant Leo turns out to have been the leader all along, and was never the same. Neither were his readers.</p><p>The servant leader exists primarily to serve — followers first, organization second, self last. This is not weakness or self-abnegation. It is the most difficult and the most powerful form of leadership available, because it requires the daily choice to place others' flourishing above one's own comfort, status, and preferences. The wilderness makes this choice concrete in ways that are impossible to fake: who carries extra weight so others can summit? Who breaks camp before the group wakes? Who gives their warmest layer to the person who is cold? Servant leadership is not a theory in the backcountry. It is what the group notices and what it remembers.</p>`,
+    wtr: "Read the original essay rather than the longer collection — it is available as a standalone. Pay close attention to the test Greenleaf proposes: do those served grow as persons? Do they become more likely to serve others? That test is the measure of the expedition."
+  },
+
+  edmondson: {
+    shelf: 'Leadership · Relational',
+    shelfColor: '#6A3A8A',
+    title: 'The Fearless Organization',
+    author: 'Amy C. Edmondson · 2018',
+    tags: [{ label: 'Psychological Safety', color: 'rgba(184,123,184,0.1)', text: '#6A3A8A' }],
+    coverBg: 'linear-gradient(145deg,#150f1f 0%,#221830 100%)',
+    coverTitleColor: '#B87BB8',
+    coverTitle: 'The Fearless Organization',
+    buyUrl: 'https://bookshop.org/a/headwater/9781119477242',
+    annotation: `<p>Edmondson's research — confirmed by Google's famous Project Aristotle study — found that psychological safety is the single strongest predictor of team learning and performance. Not talent, not diversity, not role clarity. The belief that speaking up won't get you punished.</p><p>In the wilderness, psychological safety is not abstract. It is survival. A team in which people are afraid to say "I'm scared" or "I think we're off route" or "I need help" is a more dangerous team than a less skilled one. The expedition creates conditions in which genuine psychological safety becomes functionally necessary — and in doing so, models for participants what it feels like and what it makes possible. They carry that understanding back into their organizations. The team that felt what genuine safety felt like in the backcountry knows what they're trying to build when they return.</p>`,
+    wtr: "Chapters 1–3 establish the framework. Chapter 7 on creating psychological safety as a leader is the most directly actionable. The hospital research in Chapter 4 is the most compelling case study — it shows that in high-stakes environments, safety is not soft. It is strategic."
+  },
+
+  george: {
+    shelf: 'Leadership · Transformational',
+    shelfColor: '#4A6B56',
+    title: 'Authentic Leadership',
+    author: 'Bill George · 2003',
+    tags: [{ label: 'Authentic Leadership', color: 'rgba(139,196,123,0.1)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#0f1810 0%,#182818 100%)',
+    coverTitleColor: '#8BC47B',
+    coverTitle: 'Authentic Leadership',
+    buyUrl: 'https://bookshop.org/a/headwater/9780787969134',
+    annotation: `<p>George's argument is simple and difficult: the most effective leadership flows from character, not competence. The leader who knows their values, lives them under pressure, and builds genuine relationships grounded in transparency is more effective over the long arc of a career than the leader who is merely skilled at leading.</p><p>The wilderness is the natural environment for authentic leadership development, because the wilderness strips away the professional performance. Who are you when the signal is gone, when the title doesn't mean anything, when your comfort and your status and your image are all equally irrelevant to whether the group makes it to camp by nightfall? That person — the one who shows up in those conditions — is the authentic leader. The expedition's job is to make them visible, to name them, and to give them the tools to bring that person back into the boardroom.</p>`,
+    wtr: "Read the five dimensions of authentic leadership in Chapter 2. The life story work in Chapter 3 is the most directly applicable to the expedition's purpose declaration exercise. True North (George's 2007 follow-up) goes deeper and is worth reading alongside."
+  },
+
+  snowden: {
+    shelf: 'Leadership · Systems',
+    shelfColor: '#3A7A5A',
+    title: 'Cynefin: Weaving Sense-Making Into the Fabric of Our World',
+    author: 'Dave Snowden · 2023',
+    tags: [{ label: 'Complexity & Sense-Making', color: 'rgba(123,158,135,0.1)', text: '#3A7A5A' }],
+    coverBg: 'linear-gradient(145deg,#0a1510 0%,#122018 100%)',
+    coverTitleColor: '#7B9E87',
+    coverTitle: 'Cynefin',
+    buyUrl: 'https://bookshop.org/a/headwater/9781913743000',
+    annotation: `<p>Before Snowden's Cynefin framework, most leadership training assumed that all problems are the same kind of problem — that the same analytical approach works whether you are dealing with a simple operational issue or a genuinely complex adaptive challenge. Snowden showed that this is wrong, and that applying the wrong kind of thinking to the wrong kind of problem is the primary cause of organizational failure.</p><p>A wilderness expedition traverses all four Cynefin domains in a single day: the clear trail (obvious domain, apply best practice), the route-finding problem (complicated domain, call the expert), the weather change (complex domain, probe and adapt), and the emergency (chaotic domain, act decisively to stabilize). Teaching leaders to recognize which domain they are in — and to choose the right kind of leadership response — is one of the most practically powerful things the expedition can do.</p>`,
+    wtr: "The original 2007 HBR article 'A Leader's Framework for Decision Making' (freely available online) is a better starting point than the book. Read it first. Then use the book as a reference for the complex and chaotic domains specifically."
+  },
+
+  lencioni: {
+    shelf: 'Leadership · Relational',
+    shelfColor: '#8A6030',
+    title: 'The Five Dysfunctions of a Team',
+    author: 'Patrick Lencioni · 2002',
+    tags: [{ label: 'Team Dynamics', color: 'rgba(200,168,110,0.1)', text: '#8A6030' }],
+    coverBg: 'linear-gradient(145deg,#1a1008 0%,#2a1a10 100%)',
+    coverTitleColor: '#C8A86E',
+    coverTitle: 'The Five Dysfunctions of a Team',
+    buyUrl: 'https://bookshop.org/a/headwater/9780787960759',
+    annotation: `<p>Lencioni's pyramid — absence of trust, fear of conflict, lack of commitment, avoidance of accountability, inattention to results — maps with remarkable precision onto the below-the-line patterns the Agency Model teaches. A team that won't trust is a team that is hiding. A team that won't conflict is a team that is shuffling. A team that won't commit is a team that is waiting and seeing. A team that avoids accountability is a team that is blaming. The BASH patterns are the five dysfunctions, seen from a different angle.</p><p>Reading this book alongside the Oz Principle is the most efficient available primer on organizational below-the-line behavior — how it forms, how it compounds, and what above-the-line leadership does to interrupt it.</p>`,
+    wtr: "The fable format makes this a fast read — a few hours. Read the model summary in Part Three after the story. Then apply the trust pyramid directly to the team you are leading: where on the pyramid does dysfunction actually live in your organization?"
+  },
+
+  gottman: {
+    shelf: 'Marriage & Relationship',
+    shelfColor: '#8A3068',
+    title: 'The Seven Principles for Making Marriage Work',
+    author: 'John Gottman & Nan Silver · 1999',
+    tags: [{ label: 'Foundation Text', color: 'rgba(200,123,168,0.1)', text: '#8A3068' }, { label: 'Marriage Science', color: 'rgba(200,123,168,0.08)', text: '#8A3068' }],
+    coverBg: 'linear-gradient(145deg,#1f0f18 0%,#301825 100%)',
+    coverTitleColor: '#C87BA8',
+    coverTitle: 'The Seven Principles for Making Marriage Work',
+    buyUrl: 'https://bookshop.org/a/headwater/9780553447712',
+    annotation: `<p>Gottman spent forty years in his Love Lab at the University of Washington watching couples talk to each other — and predicting, with over 90% accuracy, which couples would divorce. Not from what they said, but from how they said it. The ratio of positive to negative interactions. The presence of what he called the Four Horsemen: criticism, contempt, defensiveness, stonewalling. The quality of their repair attempts when things went wrong.</p><p>This is the most empirically rigorous book about marriage in existence. It is also the most practically useful. The seven principles — build love maps, nurture fondness and admiration, turn toward each other, accept your partner's influence, solve your solvable problems, overcome gridlock, create shared meaning — are not therapeutic abstractions. They are behavioral practices, each grounded in decades of research, each directly teachable in the context of a wilderness retreat where the normal distractions are absent and the relationship is the only thing in the room.</p><p>I consider this required reading before the marriage retreat.</p>`,
+    wtr: "Read the introduction and Chapter 1 first — Gottman's research methodology is important context for trusting the conclusions. Then read the Seven Principles in order. The questionnaires throughout the book are the most valuable part: do them honestly with your partner before the retreat."
+  },
+
+  johnson: {
+    shelf: 'Marriage & Relationship',
+    shelfColor: '#8A3068',
+    title: 'Hold Me Tight',
+    author: 'Sue Johnson · 2008',
+    tags: [{ label: 'Emotionally Focused Therapy', color: 'rgba(200,123,168,0.1)', text: '#8A3068' }],
+    coverBg: 'linear-gradient(145deg,#200f18 0%,#321825 100%)',
+    coverTitleColor: '#D48AAA',
+    coverTitle: 'Hold Me Tight',
+    buyUrl: 'https://bookshop.org/a/headwater/9780316113007',
+    annotation: `<p>Johnson's work is built on attachment theory — the research showing that humans are fundamentally wired for emotional bonding, that the need to know "are you there for me?" is as fundamental as hunger or thirst, and that the suffering of couples in distress is most often the suffering of people who cannot reach each other emotionally and do not know why.</p><p>The seven conversations Johnson structures in this book are the map for couples who have stopped turning toward each other — who have, through the accumulation of small disconnections, each learned to not reach and not respond. The wilderness retreat creates the conditions in which those conversations become possible: away from the roles and routines that maintain the distance, in a context that demands genuine presence and genuine vulnerability, with a curriculum that names what is happening and provides the language for saying what has been unsayable.</p><p>Read this alongside Gottman. They are complementary: Gottman maps the behavioral patterns, Johnson maps the emotional landscape underneath them.</p>`,
+    wtr: "The first two chapters on attachment and the pattern of 'demon dialogues' are essential — read them before anything else. Then read the seven conversations in order. The 'Hold Me Tight' conversation in Chapter 6 is the emotional center of the book and the center of the retreat curriculum."
+  },
+
+  tatkin: {
+    shelf: 'Marriage & Relationship',
+    shelfColor: '#8A3068',
+    title: 'Wired for Love',
+    author: 'Stan Tatkin · 2011',
+    tags: [{ label: 'Neuroscience of Love', color: 'rgba(200,123,168,0.1)', text: '#8A3068' }],
+    coverBg: 'linear-gradient(145deg,#180f20 0%,#281830 100%)',
+    coverTitleColor: '#C8A0C8',
+    coverTitle: 'Wired for Love',
+    buyUrl: 'https://bookshop.org/a/headwater/9781608820580',
+    annotation: `<p>Tatkin brings the neuroscience. If Gottman is the researcher and Johnson is the clinician, Tatkin is the brain scientist — showing us what is literally happening in the nervous system when couples connect and when they disconnect, when they feel safe and when they don't.</p><p>His PACT model (Psychobiological Approach to Couple Therapy) is built on the recognition that human beings in intimate relationships are neurobiologically interdependent — that our nervous systems regulate each other, that we literally co-regulate, that the state of our partner's nervous system affects our own in ways that we are mostly not conscious of. Understanding this changes how you interpret the moments of disconnection: they are often not about character failure or bad intention. They are about two nervous systems that have learned each other's threat patterns and are triggering each other without meaning to.</p><p>This book is the most accessible of his works and the right place to start.</p>`,
+    wtr: "Read Chapters 1–3 for the neuroscience foundation. The 'anchor, island, wave' attachment style typology in Chapter 4 is immediately useful for couples to understand each other's default patterns. The 'two-person psychology' concept throughout the book is the central insight."
+  },
+
+  hendrix: {
+    shelf: 'Marriage & Relationship',
+    shelfColor: '#8A3068',
+    title: 'Getting the Love You Want',
+    author: 'Harville Hendrix · 1988',
+    tags: [{ label: 'Imago Relationship Therapy', color: 'rgba(200,123,168,0.1)', text: '#8A3068' }],
+    coverBg: 'linear-gradient(145deg,#1f1018 0%,#301820 100%)',
+    coverTitleColor: '#D89AB0',
+    coverTitle: 'Getting the Love You Want',
+    buyUrl: 'https://bookshop.org/a/headwater/9781250310538',
+    annotation: `<p>Hendrix's central insight is both simple and unsettling: we are attracted to people who mirror both the positive and negative qualities of our primary caregivers, because our unconscious agenda is to heal the wounds of childhood in the context of an adult relationship. We choose partners who push exactly the buttons that were installed in our earliest years. And then we are surprised when the relationship triggers us in ways we don't understand and can't seem to control.</p><p>The Imago Dialogue — a structured conversation practice developed from this insight — is one of the most powerful relational tools in existence. It teaches couples to listen to each other in a way that most couples have never experienced: without preparing a response, without defending, without advising. Simply receiving what the other person is saying. It is the most direct available practice of Habit 5 in the relationship context — seek first to understand.</p>`,
+    wtr: "Read Part One on the unconscious motivation for partner selection — even if you are skeptical, read it through. The Imago Dialogue exercises in Part Two are the practical heart of the book. Practice the dialogue before the retreat. It will feel awkward. That discomfort is the growth."
+  },
+
+  'brown-daring': {
+    shelf: 'Marriage & Relationship',
+    shelfColor: '#8A3068',
+    title: 'Daring Greatly',
+    author: 'Brené Brown · 2012',
+    tags: [{ label: 'Vulnerability & Shame', color: 'rgba(200,123,168,0.1)', text: '#8A3068' }],
+    coverBg: 'linear-gradient(145deg,#1a0f1a 0%,#281828 100%)',
+    coverTitleColor: '#B888C8',
+    coverTitle: 'Daring Greatly',
+    buyUrl: 'https://bookshop.org/a/headwater/9781592408412',
+    annotation: `<p>Brown's research is about shame — what it is, how it works, and why the antidote to it is the thing most people are most afraid of: genuine vulnerability. Daring Greatly is the leadership and relationship application of her broader research, and it belongs in both shelves.</p><p>For the marriage retreat, it addresses the deepest obstacle to genuine connection: the armor that people wear to protect themselves from being truly seen. The leader who cannot be vulnerable with their spouse is the same leader who cannot be vulnerable with their team. The armor that protects the professional image also protects against the depth of connection that makes a marriage more than a partnership of convenience.</p><p>The wilderness lowers the armor. Physically and emotionally. The debrief creates the space where what has been hidden can be said. Brown's work provides the vocabulary for naming what happens when it does.</p>`,
+    wtr: "Chapter 2 on debunking vulnerability myths is the essential starting point. Chapter 6 on disengagement in relationships is the most directly applicable to the marriage curriculum. Read this alongside Hold Me Tight — they address the same phenomenon from different angles."
+  },
+
+  gallwey: {
+    shelf: 'Athletic Performance',
+    shelfColor: '#3A7A8A',
+    title: 'The Inner Game of Tennis',
+    author: 'W. Timothy Gallwey · 1974',
+    tags: [{ label: 'Performance Classic', color: 'rgba(123,184,196,0.1)', text: '#3A7A8A' }, { label: 'Inner Game', color: 'rgba(123,184,196,0.08)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#0a1820 0%,#102030 100%)',
+    coverTitleColor: '#7BB8C4',
+    coverTitle: 'The Inner Game of Tennis',
+    buyUrl: 'https://bookshop.org/a/headwater/9780679778318',
+    annotation: `<p>This fifty-year-old book about tennis is the clearest account of the T·F·A loop under athletic pressure that has ever been written. Gallwey called the interfering voice Self 1 — the doubting, judging, instructing mind that disrupts the body's natural capacity to perform. And he called the performing body Self 2 — the trained, capable organism that knows what to do when Self 1 gets out of the way.</p><p>The entire athletic performance curriculum is, in many ways, an elaboration of Gallwey's central insight: performance is determined less by what the body can do than by what the mind allows the body to do. The gap between practice performance and competition performance is almost entirely Self 1 interference — the voice that says "don't miss this," "everyone is watching," "if I fail here it means something about who I am." That voice is the fixed mindset. That voice is the below-the-line loop running at the worst possible moment.</p><p>The Inner Game teaches athletes to quiet Self 1 and trust Self 2. We teach them to see that Self 1 is the interpretive layer of the T·F·A loop — and that agency in that layer is the difference between their practice self and their competition self.</p>`,
+    wtr: "Read the entire book — it is short and dense with insight. Chapter 5 on letting go of judgment is the heart of it. Read it at least twice. The concepts of Self 1 and Self 2 provide the language for every conversation about performance anxiety you will have with athletes."
+  },
+
+  coyle: {
+    shelf: 'Athletic Performance',
+    shelfColor: '#3A7A8A',
+    title: 'The Talent Code',
+    author: 'Daniel Coyle · 2009',
+    tags: [{ label: 'Skill Development', color: 'rgba(123,184,196,0.1)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#101820 0%,#182830 100%)',
+    coverTitleColor: '#88B8D0',
+    coverTitle: 'The Talent Code',
+    buyUrl: 'https://bookshop.org/a/headwater/9780553806847',
+    annotation: `<p>Coyle cracked the code on why certain places — a tennis club in Moscow, a baseball clinic in the Dominican Republic, a music school in a Dallas church — produce extraordinary concentrations of talent. The answer was myelin: the insulating sheath that wraps neural circuits and makes them fire faster and more efficiently. And myelin grows in response to one specific kind of practice: deep practice — the effortful, mistake-rich, on-the-edge-of-ability practice that builds the neural circuits of skill.</p><p>This is the neuroscience of growth mindset. Dweck showed that the belief in developability is the cognitive prerequisite for development. Coyle shows what development actually looks like at the neural level — and why struggle is not the obstacle to development but its mechanism. The athlete who avoids difficulty is the athlete who avoids myelin. The athlete who seeks the edge of their ability and practices there, through failure and adjustment and failure again, is the athlete who gets better.</p>`,
+    wtr: "Part One on the biology of myelin is the foundation — read it carefully. Part Two on deep practice is the most practically applicable. The case studies throughout the book are the most memorable part: find the one that most resembles your sport and start there."
+  },
+
+  duckworth: {
+    shelf: 'Athletic Performance',
+    shelfColor: '#3A7A8A',
+    title: 'Grit: The Power of Passion and Perseverance',
+    author: 'Angela Duckworth · 2016',
+    tags: [{ label: 'Perseverance', color: 'rgba(123,184,196,0.1)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#0f1820 0%,#182535 100%)',
+    coverTitleColor: '#6AAAC8',
+    coverTitle: 'Grit',
+    buyUrl: 'https://bookshop.org/a/headwater/9781501111105',
+    annotation: `<p>Duckworth's research started with a question that West Point couldn't answer: which cadets would survive Beast Barracks, the brutal first summer of military training, and which would quit? Not the ones with the highest SAT scores. Not the ones who were the most physically fit. The ones with grit — the combination of passion and perseverance for long-term goals.</p><p>Grit is the athletic expression of the growth mindset. It is what the Agency Model looks like in the context of a long-term performance goal: the above-the-line choice made not once but thousands of times, through the boredom and the pain and the plateaus and the setbacks, in service of something that matters enough to keep going for.</p><p>For the athletic program, this book provides the vocabulary for conversations about why the athletes who reach their potential are often not the most talented ones — and why the most important question to ask is not "how good are you?" but "how much do you care, and for how long will you choose to care about it?"</p>`,
+    wtr: "Chapters 1–3 establish the research foundation. Chapter 8 on the effort effect is the most important insight: effort counts twice in Duckworth's model — once in building skill and once in translating skill into achievement. The 'Hard Thing Rule' in Chapter 10 is immediately applicable."
+  },
+
+  peak: {
+    shelf: 'Athletic Performance',
+    shelfColor: '#3A7A8A',
+    title: 'Peak Performance',
+    author: 'Brad Stulberg & Steve Magness · 2017',
+    tags: [{ label: 'Elite Performance Science', color: 'rgba(123,184,196,0.1)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#0a1820 0%,#0f2030 100%)',
+    coverTitleColor: '#7BACCF',
+    coverTitle: 'Peak Performance',
+    buyUrl: 'https://bookshop.org/a/headwater/9781623368838',
+    annotation: `<p>Stulberg and Magness did something simple and important: they looked at what the best performers in widely different fields — athletics, science, art, business — actually do, and found the same patterns everywhere. Growth follows stress plus rest. Purpose enhances performance. The best performers are not the ones who train hardest — they are the ones who train hardest and recover most deliberately.</p><p>For the wilderness expedition, this book validates the structure: intense challenge followed by genuine reflection, stress followed by restoration, the hardest days followed by the campfire debrief. The expedition is not just a metaphor for peak performance. It is structurally a peak performance intervention — one that the science in this book explains and justifies.</p>`,
+    wtr: "Read Part One on the stress-rest principle first — it is the foundation of everything else. The section on purpose in Part Three is the most directly relevant to the Headwater model. The appendix with specific protocols is useful for athletes designing their own training."
+  },
+
+  syed: {
+    shelf: 'Athletic Performance',
+    shelfColor: '#3A7A8A',
+    title: 'Bounce: Mozart, Federer, Picasso, Beckham, and the Science of Success',
+    author: 'Matthew Syed · 2010',
+    tags: [{ label: 'The Science of Mastery', color: 'rgba(123,184,196,0.1)', text: '#3A7A8A' }],
+    coverBg: 'linear-gradient(145deg,#101820 0%,#182535 100%)',
+    coverTitleColor: '#8ABFD8',
+    coverTitle: 'Bounce',
+    buyUrl: 'https://bookshop.org/a/headwater/9780061723759',
+    annotation: `<p>Syed was a table tennis champion before he was a science writer, and this combination gives Bounce a credibility that purely academic sports psychology books sometimes lack. He writes from the inside of elite performance — about what it actually feels like to be at the top of a sport, and about how the mythology of natural talent is not just wrong but actively harmful.</p><p>The central argument: the exceptional performers we call geniuses or naturals are, almost without exception, the products of extraordinary quantities of purposeful practice in environments that provided the right kind of feedback at the right developmental moment. Mozart composed at four because he practiced at four. Federer has perfect timing because he spent ten thousand hours developing it. This is Coyle's talent code from a different angle — and together they make a case that the growth mindset is not just psychologically true but biologically true.</p>`,
+    wtr: "Read Chapter 1 on the table tennis factory in Reading, England — it is the book's most powerful case study and its best opening argument. Then read Chapter 7 on the paradox of choking, which connects directly to Gallwey's inner game and is the most practically useful insight for competitive athletes."
+  },
+
+  'yes-to-life': {
+    shelf: 'For Young People',
+    shelfColor: '#4A6B56',
+    title: 'Yes to Life: In Spite of Everything',
+    author: 'Viktor Frankl · 1946 / 2020',
+    tags: [{ label: 'Start Here', color: 'rgba(139,196,123,0.1)', text: '#4A6B56' }, { label: 'Frankl Accessible', color: 'rgba(139,196,123,0.08)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#0a1a10 0%,#102518 100%)',
+    coverTitleColor: '#8BC47B',
+    coverTitle: 'Yes to Life',
+    buyUrl: 'https://bookshop.org/a/headwater/9780807005200',
+    annotation: `<p>Man's Search for Meaning is the essential Frankl text — but it is dense, and for some readers the concentration camp context is overwhelming before the philosophical insight can land. Yes to Life — three lectures Frankl gave in Vienna in 1946, the year after he returned from the camps — is shorter, warmer, and in some ways more direct in its argument for why a life in any circumstances is worth saying yes to.</p><p>For young people aging out of foster care, who have been told in various ways that their circumstances are their destiny, this book makes the opposite case with the authority of a man who had better reason than almost anyone to agree with them — and chose not to. The argument is not that their circumstances don't matter. They do. The argument is that circumstances are not the final word. That the space between what happens to us and what we do next belongs to us. That yes is always available, even when everything says no.</p>`,
+    wtr: "Read straight through — it is barely 100 pages. The second lecture, 'On the Meaning of Life,' is the heart of the book. Read it slowly. If you have already read Man's Search for Meaning, this fills in what the longer book doesn't quite say directly."
+  },
+
+  'dweck-youth': {
+    shelf: 'For Young People',
+    shelfColor: '#4A6B56',
+    title: 'Mindset (Updated Edition)',
+    author: 'Carol S. Dweck',
+    tags: [{ label: 'Growth Mindset', color: 'rgba(139,196,123,0.1)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#102010 0%,#183018 100%)',
+    coverTitleColor: '#7BC87B',
+    coverTitle: 'Mindset',
+    buyUrl: 'https://bookshop.org/a/headwater/9780345472328',
+    annotation: `<p>Dweck wrote Mindset for a general audience, and it reads accessibly regardless of the reader's age. For young people specifically, the sports and school examples throughout the book hit closest to home — and the core message is the one they most need to hear: that the qualities that matter for a good life are not fixed at birth, not determined by background, not set in stone by the circumstances you grew up in. They are developable. By anyone. Through effort and learning and the willingness to try difficult things and fail and try again.</p><p>For the Agency Scholars, this book is the cognitive foundation for everything the expedition teaches. It explains, in terms anyone can understand, why the challenge was designed to be hard — and why the hard thing that you did matters not just for what you accomplished but for who you are becoming.</p>`,
+    wtr: "Start with Chapter 1 for the two mindsets. Then read Chapter 3 on ability and accomplishment — it is the most relevant for young people navigating school and early career. The chapter on relationships is a bonus: the growth mindset applies to how you grow with people, not just skills."
+  },
+
+  'duckworth-youth': {
+    shelf: 'For Young People',
+    shelfColor: '#4A6B56',
+    title: 'Grit to Great',
+    author: 'Linda Kaplan Thaler & Robin Koval · 2015',
+    tags: [{ label: 'Perseverance', color: 'rgba(139,196,123,0.1)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#0a1a12 0%,#102015 100%)',
+    coverTitleColor: '#6EC87B',
+    coverTitle: 'Grit to Great',
+    buyUrl: 'https://bookshop.org/a/headwater/9780385347525',
+    annotation: `<p>A more accessible companion to Duckworth's academic Grit, written by two advertising executives who built careers on the principle that tenacity matters more than talent. The case studies are vivid and the argument is simple: the people who become genuinely great are almost always the ones who got up one more time than they fell down.</p><p>For young people who are beginning — who don't yet have a track record of success to draw on, who may have more experience of the falling down than the getting up — this book is an invitation to understand that the falling down is not the end of the story. It is the beginning of the next chapter.</p>`,
+    wtr: "Read it straight through in one sitting if possible. It is fast and motivating. The stories of people who started with nothing and built something through persistence are the most useful sections for young people beginning their own stories."
+  },
+
+  'brown-youth': {
+    shelf: 'For Young People',
+    shelfColor: '#4A6B56',
+    title: 'The Gifts of Imperfection',
+    author: 'Brené Brown · 2010',
+    tags: [{ label: 'Wholehearted Living', color: 'rgba(139,196,123,0.1)', text: '#4A6B56' }],
+    coverBg: 'linear-gradient(145deg,#0f1f12 0%,#182818 100%)',
+    coverTitleColor: '#88C898',
+    coverTitle: 'The Gifts of Imperfection',
+    buyUrl: 'https://bookshop.org/a/headwater/9781616496197',
+    annotation: `<p>For young people who have been shaped by a system that often communicated, directly or indirectly, that they were not enough — not smart enough, not stable enough, not worthy of being kept — Brown's argument that imperfection is not the obstacle to a meaningful life but its gateway is genuinely liberating.</p><p>The ten guideposts in this book are a practical map for what above-the-line living looks like in terms of daily choices: let go of what people think, let go of perfectionism, cultivate self-compassion, let go of the need for certainty, cultivate intuition. Each one is an above-the-line choice. Each one is learnable. And each one is made more accessible by the direct experience of genuine belonging that the wilderness expedition provides.</p>`,
+    wtr: "Read the introduction and the section on belonging vs. fitting in first — it is the most important distinction in the book for young people. Then read the guideposts in whatever order feels most relevant to what you are carrying right now."
+  },
+
+  'wheel-print': {
+    shelf: 'Headwater Originals',
+    shelfColor: '#8A5030',
+    title: 'The Agency Wheel — Fine Art Print',
+    author: 'Headwater Institute · 18×24"',
+    tags: [{ label: 'Fine Art Print', color: 'rgba(196,149,107,0.1)', text: '#8A5030' }, { label: 'Coming Soon', color: 'rgba(196,149,107,0.08)', text: '#8A5030' }],
+    coverBg: 'linear-gradient(145deg,#0D0F14 0%,#1a1810 100%)',
+    coverTitleColor: '#C8A86E',
+    coverTitle: 'The Agency Wheel',
+    buyUrl: '#',
+    annotation: `<p>The Agency Wheel — the complete unified model, with Agency at the center, the Thought·Feeling·Action loop in the middle ring, the Line, and all seven leadership clusters in the outer ring — rendered as an 18×24 inch fine art print on heavyweight archival paper.</p><p>Designed to live in an office, a study, or a conference room as a permanent reminder of the source. Every element of the model is legible and precisely rendered. The palette is the deep gold and sage and near-black of the Institute.</p><p>Available to expedition alumni and through the Reading Room when production is complete. Join the waiting list.</p>`,
+    wtr: "This is the model you will use in every coaching conversation, every team meeting, every moment when you need to locate yourself or your organization on the map of where agency lives and where it has been lost."
+  },
+
+  'field-journal': {
+    shelf: 'Headwater Originals',
+    shelfColor: '#8A5030',
+    title: 'The Headwater Field Journal',
+    author: 'For Expedition Participants',
+    tags: [{ label: 'Journal', color: 'rgba(196,149,107,0.1)', text: '#8A5030' }, { label: 'Coming Soon', color: 'rgba(196,149,107,0.08)', text: '#8A5030' }],
+    coverBg: 'linear-gradient(145deg,#1a1208 0%,#2a1e10 100%)',
+    coverTitleColor: '#C4956B',
+    coverTitle: 'The Headwater Field Journal',
+    buyUrl: '#',
+    annotation: `<p>A purpose-designed journal for expedition participants — built around the T·F·A loop and the daily debrief structure of the Headwater program. Durable enough for the backcountry. Beautiful enough to keep.</p><p>Each day's section opens with a morning intention prompt (the Thought dimension), a midday check-in (the Feeling dimension), and an evening debrief (the Action dimension and the loop in full). There are spaces for the daily above-the-line commitment, the wilderness observation, and the campfire reflection. There are canon quotes at section openings. There is a final reflection section for the return home.</p><p>Designed to be used in the field and kept long after — a record of the expedition and the choices made in it.</p>`,
+    wtr: "Bring it with you. Write in it every day. The quality of what you write in the morning will determine the quality of what you notice during the day. The quality of what you write in the evening will determine how much of the expedition you carry home."
+  },
+
+  'barrett-book': {
+    shelf: 'Headwater Originals · Forthcoming',
+    shelfColor: '#8A5030',
+    title: 'The Headwater Book — In Development',
+    author: 'Barrett Christensen',
+    tags: [{ label: 'Forthcoming', color: 'rgba(196,149,107,0.1)', text: '#8A5030' }],
+    coverBg: 'linear-gradient(145deg,#0D0F14 0%,#181410 100%)',
+    coverTitleColor: 'rgba(200,168,110,0.5)',
+    coverTitle: 'The Headwater Book',
+    buyUrl: '#',
+    annotation: `<p>The book is being written. It will be the full articulation of the Agency Model — the philosophical foundation, the seven canon works, the fifty leadership models, the T·F·A loop, the wilderness pedagogy, and the stories of what happens when all of it comes together in the backcountry.</p><p>Three movements: the foundation (agency, the source, the space between stimulus and response), the landscape (the fifty models and how they all flow from the same source), and the return (how to carry it home — into organizations, into marriages, into athletic performance, into a life worth measuring).</p><p>Join the waiting list. You'll be the first to know when it's available for pre-order.</p>`,
+    wtr: "While the book is being written, the pre-expedition reading list is the best available preparation. Start with Frankl. Then Connors, Smith & Hickman. Then Covey. The rest will follow in order."
+  }
+
+};
+
+// ── Modal Logic ────────────────────────────────────────────────
+function openAnnotation(bookId) {
+  const book = BOOKS[bookId];
+  if (!book) return;
+
+  document.getElementById('modal-shelf-label').textContent = book.shelf;
+  document.getElementById('modal-shelf-label').style.color = book.shelfColor;
+
+  // Cover
+  const coverEl = document.getElementById('modal-cover');
+  coverEl.style.background = book.coverBg;
+  coverEl.innerHTML = `<div class="book-cover-inner">
+    <div class="cover-title" style="color:${book.coverTitleColor};font-size:10px">${book.coverTitle}</div>
+    <div class="cover-author" style="color:${book.coverTitleColor};opacity:0.6;font-size:5px">${book.author}</div>
+  </div>`;
+
+  document.getElementById('modal-title').textContent = book.title;
+  document.getElementById('modal-author').textContent = book.author;
+
+  // Tags
+  const tagsEl = document.getElementById('modal-tags');
+  tagsEl.innerHTML = book.tags.map(t =>
+    `<span class="modal-tag" style="background:${t.color};color:${t.text}">${t.label}</span>`
+  ).join('');
+
+  // Buy button
+  const buyBtn = document.getElementById('modal-buy-btn');
+  if (book.buyUrl && book.buyUrl !== '#') {
+    buyBtn.href = book.buyUrl;
+    buyBtn.style.display = 'inline-flex';
+    buyBtn.textContent = 'Get this book on Bookshop.org';
+    buyBtn.insertAdjacentText('beforeend', ' ');
+  } else {
+    buyBtn.style.display = 'none';
+  }
+
+  document.getElementById('modal-annotation').innerHTML = book.annotation;
+  document.getElementById('modal-wtr').textContent = book.wtr;
+
+  document.getElementById('annotation-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAnnotation() {
+  document.getElementById('annotation-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAnnotation();
+});
+
+// ── Shelf Nav Active State ─────────────────────────────────────
+const shelfSections = document.querySelectorAll('.shelf-section');
+const shelfTabs = document.querySelectorAll('.shelf-tab');
+
+const shelfObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      shelfTabs.forEach(tab => {
+        tab.classList.toggle('active', tab.getAttribute('data-shelf') === id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+shelfSections.forEach(section => shelfObserver.observe(section));
+
+// ── Smooth Scroll ──────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 112; // nav + shelf nav height
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+</script>
+</body>
+</html>

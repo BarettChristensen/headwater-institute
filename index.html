@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Headwater Institute teaches agency — the irreducible human freedom to choose — through wilderness expeditions, executive coaching, and leadership development programs grounded in the world's most rigorous body of research.">
+<title>Headwater Institute — Where Leadership Begins</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --parchment:   #F7F4EF;
+  --parchment2:  #EDE9E1;
+  --parchment3:  #E2DDD4;
+  --ink:         #0D0F14;
+  --ink2:        #3D3830;
+  --ink3:        #6B6358;
+  --gold:        #C8A86E;
+  --gold2:       #A88A50;
+  --gold-light:  #F0E8D6;
+  --sage:        #7B9E87;
+  --sage-light:  #EEF4F0;
+  --sage-dark:   #4A6B56;
+  --border:      rgba(61,56,48,0.12);
+  --border-gold: rgba(200,168,110,0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(247,244,239,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.nav-mark:hover { opacity: 0.7; }
+
+.nav-mark.light { color: var(--gold); }
+
+.nav-mark-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(247,244,239,0.7);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #F7F4EF; }
+
+nav.scrolled .nav-links a {
+  color: var(--ink3);
+}
+nav.scrolled .nav-links a:hover {
+  color: var(--ink);
+}
+
+.nav-cta {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid rgba(200,168,110,0.5);
+  color: var(--gold) !important;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--ink) !important;
+  border-color: var(--gold);
+}
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 60%, rgba(200,168,110,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(123,158,135,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Thin gold line at very top */
+.hero-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.6;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 36px;
+  opacity: 0.9;
+}
+
+.hero-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(32px, 5vw, 62px);
+  line-height: 1.18;
+  color: #F7F4EF;
+  max-width: 920px;
+  letter-spacing: -0.01em;
+}
+
+.hero-statement em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.hero-statement .break {
+  display: block;
+  margin-top: 0.6em;
+}
+
+.hero-meta {
+  margin-top: 52px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-scroll {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(247,244,239,0.35);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-scroll::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(247,244,239,0.25);
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-primary {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 28px;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 2px;
+  font-weight: 700;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: #B8984E;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 28px;
+  border: 1px solid rgba(247,244,239,0.2);
+  color: rgba(247,244,239,0.7);
+  border-radius: 2px;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover {
+  border-color: rgba(247,244,239,0.5);
+  color: #F7F4EF;
+}
+
+/* ── SECTION UTILITY ── */
+section { width: 100%; }
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-bottom: 16px;
+}
+
+.eyebrow.gold { color: var(--gold2); }
+.eyebrow.sage { color: var(--sage-dark); }
+.eyebrow.light { color: rgba(247,244,239,0.45); }
+
+h2.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+h2.section-title.light { color: #F7F4EF; }
+h2.section-title.gold { color: var(--gold); }
+
+.section-body {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink2);
+  font-weight: 300;
+  max-width: 600px;
+}
+
+.section-body.light {
+  color: rgba(247,244,239,0.65);
+}
+
+/* ── SECTION: THE SOURCE ── */
+#source {
+  padding: 120px 0;
+  background: var(--parchment);
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 64px;
+}
+
+.source-left h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.source-left p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--ink2);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.source-left p:last-child { margin-bottom: 0; }
+
+.source-right {
+  padding-top: 4px;
+}
+
+.source-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink);
+  border-left: 2px solid var(--gold);
+  padding-left: 28px;
+  margin-bottom: 20px;
+}
+
+.source-cite {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--gold2);
+  padding-left: 28px;
+}
+
+.source-divider {
+  margin: 48px 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.source-tenets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.tenet {
+  padding: 24px;
+  background: var(--parchment2);
+  border-radius: 2px;
+  border-left: 2px solid var(--gold);
+}
+
+.tenet-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  margin-bottom: 10px;
+}
+
+.tenet p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+/* ── SECTION: THE MODEL ── */
+#model-preview {
+  padding: 120px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+#model-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200,168,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.model-preview-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.model-preview-text { }
+
+.model-preview-text .section-body {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.model-diagram {
+  position: relative;
+}
+
+/* SVG Agency Wheel preview */
+.wheel-preview-svg {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+}
+
+.model-canon-strip {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(247,244,239,0.08);
+}
+
+.canon-strip-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(247,244,239,0.3);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.canon-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.canon-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(247,244,239,0.45);
+  padding: 4px 12px;
+  border: 1px solid rgba(247,244,239,0.08);
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+
+.canon-name:hover {
+  color: var(--gold);
+  border-color: rgba(200,168,110,0.3);
+}
+
+/* ── SECTION: PROGRAMS ── */
+#programs {
+  padding: 120px 0;
+  background: var(--parchment);
+}
+
+.programs-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+
+.programs-header-right {
+  padding-bottom: 4px;
+}
+
+.programs-header-right p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.program-card {
+  background: var(--parchment);
+  padding: 48px 44px;
+  position: relative;
+  transition: background 0.25s;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+}
+
+.program-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover { background: var(--parchment2); }
+.program-card:hover::before { transform: scaleX(1); }
+
+.program-card.exec::before { background: var(--gold); }
+.program-card.couples::before { background: var(--sage); }
+.program-card.athletes::before { background: #7B9EB8; }
+.program-card.foundation::before { background: #B07070; }
+
+.program-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--ink3);
+  margin-bottom: 24px;
+  opacity: 0.5;
+}
+
+.program-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+
+.program-card.exec .program-title { }
+.program-card:hover .program-title { color: var(--ink); }
+
+.program-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.program-card.exec .program-sub { color: var(--gold2); }
+.program-card.couples .program-sub { color: var(--sage-dark); }
+.program-card.athletes .program-sub { color: #4A6B8A; }
+.program-card.foundation .program-sub { color: #8A5050; }
+
+.program-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink2);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.program-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.program-card.exec:hover .program-link { color: var(--gold2); }
+.program-card.couples:hover .program-link { color: var(--sage-dark); }
+.program-card.athletes:hover .program-link { color: #4A6B8A; }
+.program-card.foundation:hover .program-link { color: #8A5050; }
+
+.program-link::after {
+  content: '→';
+  transition: transform 0.2s;
+}
+
+.program-card:hover .program-link::after {
+  transform: translateX(4px);
+}
+
+/* ── SECTION: THE LINE ── */
+#the-line {
+  padding: 100px 0;
+  background: var(--parchment2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.line-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+  margin-top: 52px;
+}
+
+.line-card {
+  background: var(--parchment2);
+  padding: 40px 36px;
+}
+
+.line-card-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.line-card:nth-child(1) .line-card-letter { color: #8BA8C8; }
+.line-card:nth-child(2) .line-card-letter { color: #C8A0B8; }
+.line-card:nth-child(3) .line-card-letter { color: #C8A870; }
+
+.line-card-word {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--ink3);
+}
+
+.line-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.line-below-above {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.above-list, .below-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.above-item, .below-item {
+  padding: 14px 20px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.above-item {
+  background: rgba(123,158,135,0.1);
+  border-left: 2px solid var(--sage);
+}
+
+.below-item {
+  background: rgba(176,112,112,0.08);
+  border-left: 2px solid #B07070;
+}
+
+.above-item::before {
+  content: '↑';
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--sage-dark);
+  flex-shrink: 0;
+}
+
+.below-item::before {
+  content: '↓';
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #8A5050;
+  flex-shrink: 0;
+}
+
+.line-divider-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  height: 100%;
+  position: relative;
+}
+
+.line-divider-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border);
+}
+
+.line-divider-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--ink3);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 12px 0;
+  white-space: nowrap;
+}
+
+/* ── SECTION: FOUNDER ── */
+#founder {
+  padding: 120px 0;
+  background: #18160F;
+  position: relative;
+  overflow: hidden;
+}
+
+#founder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(200,168,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.founder-image-area {
+  position: relative;
+}
+
+.founder-portrait {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: rgba(200,168,110,0.06);
+  border: 1px solid rgba(200,168,110,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.founder-portrait-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: rgba(200,168,110,0.3);
+  text-transform: uppercase;
+}
+
+.founder-portrait::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.founder-name-block {
+  margin-top: 20px;
+}
+
+.founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #F7F4EF;
+  margin-bottom: 4px;
+}
+
+.founder-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.founder-text { }
+
+.founder-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(247,244,239,0.75);
+  margin-bottom: 22px;
+}
+
+.founder-text p:first-child {
+  font-size: clamp(22px, 2.5vw, 28px);
+  color: #F7F4EF;
+  font-weight: 300;
+}
+
+.founder-text p strong {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.founder-credential-strip {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(247,244,239,0.08);
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.founder-credential {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.credential-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.credential-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(247,244,239,0.3);
+}
+
+/* ── SECTION: FOUNDATION ── */
+#foundation {
+  padding: 120px 0;
+  background: var(--sage-light);
+  border-top: 3px solid var(--sage);
+  position: relative;
+}
+
+.foundation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.foundation-left { }
+
+.foundation-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.foundation-body p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink2);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.foundation-tithe {
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: white;
+  border-left: 3px solid var(--sage);
+  border-radius: 0 2px 2px 0;
+}
+
+.foundation-tithe-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 8px;
+}
+
+.foundation-tithe p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.foundation-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.foundation-stat {
+  padding: 28px 32px;
+  background: white;
+  border-radius: 2px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.foundation-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.foundation-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--sage);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.foundation-stat-text { }
+
+.foundation-stat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.foundation-stat-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink2);
+  font-weight: 300;
+}
+
+.foundation-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sage-dark);
+  margin-top: 8px;
+  transition: gap 0.2s;
+}
+.foundation-link:hover { gap: 16px; }
+.foundation-link::after { content: '→'; }
+
+/* ── SECTION: CONTACT / INQUIRY ── */
+#contact {
+  padding: 120px 0;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(200,168,110,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-left { }
+
+.contact-left .section-body {
+  margin-top: 20px;
+  margin-bottom: 48px;
+}
+
+.contact-info { }
+
+.contact-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.contact-info-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247,244,239,0.3);
+}
+
+.contact-info-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: #F7F4EF;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-info-value:hover { color: var(--gold); }
+
+/* Form */
+.contact-form { }
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247,244,239,0.4);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: rgba(247,244,239,0.05);
+  border: 1px solid rgba(247,244,239,0.1);
+  color: #F7F4EF;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 14px 16px;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  background: rgba(200,168,110,0.04);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(247,244,239,0.25);
+}
+
+.form-select option {
+  background: var(--ink);
+  color: #F7F4EF;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  border-radius: 2px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  background: #B8984E;
+  transform: translateY(-1px);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #080A0F;
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(247,244,239,0.04);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 60px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(247,244,239,0.06);
+}
+
+.footer-brand { }
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.footer-logo-icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(247,244,239,0.35);
+  line-height: 1.6;
+  max-width: 200px;
+}
+
+.footer-col-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,244,239,0.3);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(247,244,239,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: #F7F4EF; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-legal {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(247,244,239,0.2);
+}
+
+.footer-gives {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--sage-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-gives:hover { color: var(--sage); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero-inner { padding: 0 24px; }
+  .section-inner { padding: 0 24px; }
+  .footer-inner { padding: 0 24px; }
+
+  .source-grid { grid-template-columns: 1fr; gap: 48px; }
+  .source-tenets { grid-template-columns: 1fr; }
+  .model-preview-inner { grid-template-columns: 1fr; }
+  .programs-header { grid-template-columns: 1fr; gap: 24px; }
+  .program-grid { grid-template-columns: 1fr; }
+  .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+  .foundation-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .line-inner { grid-template-columns: 1fr; }
+  .line-below-above { grid-template-columns: 1fr; }
+  .line-divider-col { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+
+  #hero, #source, #model-preview, #programs, #the-line,
+  #founder, #foundation, #contact { padding: 80px 0; }
+}
+
+@media (max-width: 480px) {
+  .hero-statement { font-size: 28px; }
+  .hero-cta-group { flex-direction: column; align-items: flex-start; }
+  .footer-top { grid-template-columns: 1fr; }
+  .founder-credential-strip { flex-direction: column; gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="main-nav">
+  <a href="/" class="nav-mark light"><img src="/assets/headwater-mark-light-nav.png" alt="" class="nav-mark-icon">Headwater Institute</a>
+  <ul class="nav-links">
+    <li><a href="#model-preview">The Model</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="/store">Reading Room</a></li>
+    <li><a href="#founder">About</a></li>
+    <li><a href="https://headwatergives.org" target="_blank" rel="noopener">Foundation</a></li>
+    <li><a href="#contact" class="nav-cta">Begin a Conversation</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-line"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">The Headwater Institute · Portland, Oregon</div>
+    <h1 class="hero-statement">
+      We teach <em>agency.</em>
+      <span class="break">We teach it to executives and founders who have every advantage
+      and have forgotten why their choices matter.</span>
+      <span class="break">And we teach it to young people who have had every disadvantage
+      and have been taught their choices don't matter.</span>
+      <span class="break"><em>The wilderness doesn't know the difference between them.</em>
+      And after a few days in it, neither do they.</span>
+    </h1>
+    <div class="hero-meta">
+      <div class="hero-cta-group">
+        <a href="#programs" class="btn-primary">Explore Programs</a>
+        <a href="#model-preview" class="btn-ghost">The Model</a>
+      </div>
+      <div class="hero-scroll">Where leadership begins</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE SOURCE ══ -->
+<section id="source">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">The Headwater</div>
+      <h2 class="section-title">Where the river begins.</h2>
+    </div>
+    <div class="source-grid">
+      <div class="source-left reveal">
+        <h3>Every great river begins at a headwater — the highest, purest point, from which everything downstream is possible.</h3>
+        <p>Leadership is no different. Every leadership model ever written — every framework, every theory, every practice across fifty years of research — flows from a single source. Not a technique. Not a style. Not a set of behaviors or competencies or communication strategies.</p>
+        <p>A truth. The most important truth in human experience.</p>
+        <p>Between what happens to you and what you do next, there is a space. In that space lives your freedom, your growth, and your capacity to lead. Viktor Frankl found it in a concentration camp and named it. The best researchers in psychology and leadership have spent fifty years confirming it. And the wilderness — remote, honest, demanding, indifferent to title or credential — is where it becomes undeniable.</p>
+        <p>The Headwater Institute is built on that source. Everything we do — every expedition, every coaching visit, every marriage retreat, every young person we serve — flows from this one irreducible beginning.</p>
+        <div class="source-divider"></div>
+        <div class="source-tenets">
+          <div class="tenet">
+            <div class="tenet-label">The source</div>
+            <p>Agency — the freedom to choose — is the headwater of all leadership, all flourishing relationships, all elite performance.</p>
+          </div>
+          <div class="tenet">
+            <div class="tenet-label">The classroom</div>
+            <p>The wilderness is the most honest environment available. It does not accept excuses. It does not grade on a curve.</p>
+          </div>
+          <div class="tenet">
+            <div class="tenet-label">The model</div>
+            <p>Seven canonical works. Fifty leadership models. One Agency Wheel that shows how all of it flows from the same source.</p>
+          </div>
+          <div class="tenet">
+            <div class="tenet-label">The gift</div>
+            <p>Ten percent of everything the Institute earns flows downstream — to the young people who have never been told the source was theirs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="source-right reveal">
+        <div class="source-quote">
+          "Between stimulus and response there is a space. In that space is our power to choose our response. In our response lies our growth and our freedom."
+        </div>
+        <div class="source-cite">— Viktor Frankl · Man's Search for Meaning · 1946</div>
+        <div class="source-divider"></div>
+        <div class="source-quote" style="font-size:clamp(18px,1.8vw,24px)">
+          "I am not a product of my circumstances. I am a product of my decisions."
+        </div>
+        <div class="source-cite">— Stephen R. Covey · The 7 Habits of Highly Effective People</div>
+        <div class="source-divider"></div>
+        <div class="source-quote" style="font-size:clamp(18px,1.8vw,24px)">
+          "The allocation of your personal time, energy, and talent ultimately shapes your life's strategy — whether you mean it to or not."
+        </div>
+        <div class="source-cite">— Clayton M. Christensen · How Will You Measure Your Life?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE MODEL ══ -->
+<section id="model-preview">
+  <div class="section-inner">
+    <div class="model-preview-inner">
+      <div class="model-preview-text reveal">
+        <div class="eyebrow light">The Agency Model</div>
+        <h2 class="section-title light">Fifty years of leadership research. One source.</h2>
+        <p class="section-body light">
+          The Agency Wheel maps every major leadership model in existence — fifty-plus frameworks across seven clusters — and shows how all of them rest on a single foundation: the human capacity to choose. The Thought–Feeling–Action loop is the mechanism. The Line is the daily diagnostic. Agency is the hinge on which everything turns.
+        </p>
+        <a href="/model" class="btn-primary" style="margin-bottom:0">Explore the Full Model</a>
+        <div class="model-canon-strip">
+          <div class="canon-strip-label">The Core Canon — Seven Foundational Works</div>
+          <div class="canon-names">
+            <span class="canon-name">Frankl</span>
+            <span class="canon-name">Connors, Smith &amp; Hickman</span>
+            <span class="canon-name">Covey</span>
+            <span class="canon-name">Bandura</span>
+            <span class="canon-name">Dweck</span>
+            <span class="canon-name">Seligman</span>
+            <span class="canon-name">Christensen</span>
+          </div>
+        </div>
+      </div>
+      <div class="model-diagram reveal">
+        <!-- Agency Wheel Preview SVG -->
+        <svg class="wheel-preview-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="wg1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#C8A86E" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#C8A86E" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="420" height="420" fill="#0D0F14" rx="4"/>
+          <circle cx="210" cy="210" r="185" fill="url(#wg1)"/>
+
+          <!-- Outer ring segments -->
+          <path d="M210,210 L158,47 A185,185 0 0,1 262,47 Z" fill="rgba(224,123,90,0.08)" stroke="rgba(224,123,90,0.2)" stroke-width="1"/>
+          <path d="M210,210 L262,47 A185,185 0 0,1 370,148 Z" fill="rgba(123,184,196,0.08)" stroke="rgba(123,184,196,0.2)" stroke-width="1"/>
+          <path d="M210,210 L370,148 A185,185 0 0,1 370,272 Z" fill="rgba(184,123,184,0.08)" stroke="rgba(184,123,184,0.2)" stroke-width="1"/>
+          <path d="M210,210 L370,272 A185,185 0 0,1 262,373 Z" fill="rgba(196,160,123,0.08)" stroke="rgba(196,160,123,0.2)" stroke-width="1"/>
+          <path d="M210,210 L262,373 A185,185 0 0,1 158,373 Z" fill="rgba(200,169,110,0.08)" stroke="rgba(200,169,110,0.2)" stroke-width="1"/>
+          <path d="M210,210 L158,373 A185,185 0 0,1 50,272 Z" fill="rgba(139,196,123,0.08)" stroke="rgba(139,196,123,0.2)" stroke-width="1"/>
+          <path d="M210,210 L50,272 A185,185 0 0,1 50,148 Z" fill="rgba(123,158,184,0.08)" stroke="rgba(123,158,184,0.2)" stroke-width="1"/>
+          <path d="M210,210 L50,148 A185,185 0 0,1 158,47 Z" fill="rgba(200,169,110,0.05)" stroke="rgba(200,169,110,0.15)" stroke-width="1"/>
+
+          <!-- Middle ring -->
+          <circle cx="210" cy="210" r="110" fill="rgba(13,15,20,0.8)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+          <!-- TFA Labels -->
+          <path id="t-arc" d="M 130,175 A 110,110 0 0,1 290,175" fill="none"/>
+          <text font-family="Space Mono" font-size="9" fill="#8BA8C8" letter-spacing="8">
+            <textPath href="#t-arc" startOffset="12%">T H O U G H T S</textPath>
+          </text>
+
+          <path id="f-arc" d="M 290,175 A 110,110 0 0,1 210,320" fill="none"/>
+          <text font-family="Space Mono" font-size="9" fill="#C8A0B8" letter-spacing="7">
+            <textPath href="#f-arc" startOffset="8%">F E E L I N G S</textPath>
+          </text>
+
+          <path id="a-arc" d="M 210,320 A 110,110 0 0,1 130,175" fill="none"/>
+          <text font-family="Space Mono" font-size="9" fill="#C8A870" letter-spacing="8">
+            <textPath href="#a-arc" startOffset="10%">A C T I O N S</textPath>
+          </text>
+
+          <!-- Inner agency core -->
+          <circle cx="210" cy="210" r="54" fill="rgba(13,15,20,0.9)" stroke="rgba(200,168,110,0.4)" stroke-width="1.5"/>
+          <circle cx="210" cy="210" r="46" fill="#0D0F14" stroke="rgba(200,168,110,0.15)" stroke-width="1"/>
+          <text x="210" y="206" text-anchor="middle" font-family="Cormorant Garamond" font-size="18" font-weight="600" fill="#C8A86E">Agency</text>
+          <text x="210" y="220" text-anchor="middle" font-family="Space Mono" font-size="6" fill="#6B5E48" letter-spacing="2">THE SOURCE</text>
+
+          <!-- The Line -->
+          <line x1="30" y1="210" x2="390" y2="210" stroke="rgba(255,255,255,0.1)" stroke-width="0.75"/>
+          <text x="40" y="202" font-family="Space Mono" font-size="7" fill="#7B9E87" letter-spacing="3" opacity="0.7">ABOVE</text>
+          <text x="40" y="224" font-family="Space Mono" font-size="7" fill="#B07070" letter-spacing="3" opacity="0.7">BELOW</text>
+
+          <!-- Cluster labels -->
+          <text x="210" y="76" text-anchor="middle" font-family="Cormorant Garamond" font-size="10" fill="#E07B5A" opacity="0.8" font-weight="600">TRANSFORMATIONAL</text>
+          <text x="340" y="175" text-anchor="middle" font-family="Cormorant Garamond" font-size="10" fill="#B87BB8" opacity="0.8" font-weight="600" transform="rotate(72,340,175)">RELATIONAL</text>
+          <text x="295" y="355" text-anchor="middle" font-family="Cormorant Garamond" font-size="9" fill="#C4A07B" opacity="0.8" font-weight="600">CULTURAL</text>
+          <text x="125" y="355" text-anchor="middle" font-family="Cormorant Garamond" font-size="10" fill="#C8A96E" opacity="0.8" font-weight="600">CLASSICAL</text>
+          <text x="70" y="175" text-anchor="middle" font-family="Cormorant Garamond" font-size="10" fill="#8BC47B" opacity="0.8" font-weight="600" transform="rotate(-72,70,175)">SYSTEMS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE T·F·A LOOP ══ -->
+<section id="the-line">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">The Mechanism</div>
+      <h2 class="section-title">The Thought · Feeling · Action Loop</h2>
+      <p class="section-body" style="margin-top:16px">Three elements. One mechanism. The direction it runs determines everything.</p>
+    </div>
+    <div class="line-inner reveal">
+      <div class="line-card">
+        <div class="line-card-letter">T</div>
+        <div class="line-card-word">Thoughts</div>
+        <p>The interpretive layer. How you make meaning of what happens. The most accessible entry point for agency — you can observe a thought, question it, and choose a different one.</p>
+      </div>
+      <div class="line-card">
+        <div class="line-card-letter">F</div>
+        <div class="line-card-word">Feelings</div>
+        <p>The motivational layer. Feelings are not irrational noise — they are information. They shape perception, attention, and decision quality as powerfully as logic does.</p>
+      </div>
+      <div class="line-card">
+        <div class="line-card-letter">A</div>
+        <div class="line-card-word">Actions</div>
+        <p>The visible layer. Where inner life meets the world. But actions also reshape thoughts and feelings — making action itself a powerful entry point for redirecting the loop.</p>
+      </div>
+    </div>
+    <div class="line-below-above reveal" style="margin-top:48px">
+      <div class="above-list">
+        <div class="above-item">See It clearly</div>
+        <div class="above-item">Own It fully</div>
+        <div class="above-item">Solve It creatively</div>
+        <div class="above-item">Do It committedly</div>
+      </div>
+      <div class="line-divider-col">
+        <div class="line-divider-line"></div>
+        <div class="line-divider-label">The Line</div>
+        <div class="line-divider-line"></div>
+      </div>
+      <div class="below-list">
+        <div class="below-item">Blame others</div>
+        <div class="below-item">Abdicate responsibility</div>
+        <div class="below-item">Shuffle and wait</div>
+        <div class="below-item">Hide from consequences</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROGRAMS ══ -->
+<section id="programs">
+  <div class="section-inner">
+    <div class="programs-header reveal">
+      <div>
+        <div class="eyebrow">The Programs</div>
+        <h2 class="section-title">One source.<br>Four rivers.</h2>
+      </div>
+      <div class="programs-header-right">
+        <p>The same Agency Model. The same wilderness methodology. The same irreducible commitment to teaching people that their choices matter — applied to four distinct human experiences, each with its own depth of curriculum, its own wilderness setting, and its own ongoing support structure.</p>
+      </div>
+    </div>
+    <div class="program-grid">
+      <a href="/programs/executives" class="program-card exec">
+        <div class="program-number">01</div>
+        <div class="program-title">Executive &amp; Founder Leadership</div>
+        <div class="program-sub">Wilderness Expeditions · In-Person Coaching</div>
+        <p class="program-desc">A multi-day backcountry expedition grounded in the Agency Model and the world's most rigorous leadership research. Followed by quarterly in-person visits — half-day with the executive, half-day with the team — for as long as the relationship serves the work.</p>
+        <span class="program-link">Explore this program</span>
+      </a>
+      <a href="/programs/couples" class="program-card couples">
+        <div class="program-number">02</div>
+        <div class="program-title">Marriage &amp; Relationship</div>
+        <div class="program-sub">Wilderness Retreats · Therapeutic Follow-Up</div>
+        <p class="program-desc">The Agency Model applied to the most important relationship in a leader's life. A wilderness retreat grounded in the best marriage research in existence — Gottman, Johnson, Tatkin, Hendrix — with licensed therapists providing ongoing support after the retreat.</p>
+        <span class="program-link">Explore this program</span>
+      </a>
+      <a href="/programs/athletes" class="program-card athletes">
+        <div class="program-number">03</div>
+        <div class="program-title">Athletic Performance</div>
+        <div class="program-sub">High School · College · Professional</div>
+        <p class="program-desc">The difference between a good athlete and a great one is rarely physical. It is the capacity to choose — under pressure, at the limit, when everything is on the line. A wilderness expedition that builds the mental architecture of elite performance from the inside out.</p>
+        <span class="program-link">Explore this program</span>
+      </a>
+      <a href="https://headwatergives.org" class="program-card foundation" target="_blank" rel="noopener">
+        <div class="program-number">04</div>
+        <div class="program-title">Headwater Gives</div>
+        <div class="program-sub">Foster Care · Agency Scholars · Foundation</div>
+        <p class="program-desc">Ten percent of everything the Institute earns flows to young people aging out of foster care — through the same wilderness, the same curriculum, the same belief in their capacity to choose. Because the wilderness doesn't know what kind of childhood you had.</p>
+        <span class="program-link">Learn about the foundation</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOUNDER ══ -->
+<section id="founder">
+  <div class="section-inner">
+    <div class="founder-grid">
+      <div class="founder-image-area reveal">
+        <div class="founder-portrait">
+          <span class="founder-portrait-label">Barrett Christensen</span>
+        </div>
+        <div class="founder-name-block">
+          <div class="founder-name">Barrett Christensen</div>
+          <div class="founder-title">Founder · Headwater Institute</div>
+        </div>
+      </div>
+      <div class="founder-text reveal">
+        <div class="eyebrow light">The Founder</div>
+        <p>I have spent my career building things — companies, relationships, teams, expeditions. And the longer I build, the more certain I become of the one thing that determines whether any of it lasts.</p>
+        <p>Not strategy. Not capital. Not talent, though talent helps. <strong>Agency.</strong> The knowledge — deep, embodied, tested-in-the-field knowledge — that between what happens to you and what you do next, there is a space. And in that space, you are the author.</p>
+        <p>I found the Oz Principle at a turning point in my business life and it reframed everything. I found Frankl and understood why. I found Covey and Bandura and Dweck and Seligman and Christensen and built a model that holds all of it together. And then I took it into the wilderness — because the wilderness is the only classroom I have ever found that makes the lesson impossible to forget.</p>
+        <p>The Headwater Institute exists because this is too important to keep to myself. And because the young people aging out of foster care deserve the same experience as the Fortune 500 executives. The wilderness doesn't know the difference. <strong>Neither should we.</strong></p>
+        <div class="founder-credential-strip">
+          <div class="founder-credential">
+            <span class="credential-value">7</span>
+            <span class="credential-label">Canon Works</span>
+          </div>
+          <div class="founder-credential">
+            <span class="credential-value">50+</span>
+            <span class="credential-label">Leadership Models</span>
+          </div>
+          <div class="founder-credential">
+            <span class="credential-value">4</span>
+            <span class="credential-label">Markets Served</span>
+          </div>
+          <div class="founder-credential">
+            <span class="credential-value">10%</span>
+            <span class="credential-label">Tithe to Gives</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOUNDATION ══ -->
+<section id="foundation">
+  <div class="section-inner">
+    <div class="foundation-grid">
+      <div class="foundation-left reveal">
+        <div class="eyebrow sage">Headwater Gives</div>
+        <h2 class="section-title">The water flows<br>downstream.</h2>
+        <div class="foundation-statement">
+          "The wilderness doesn't know what kind of childhood you had. And after a few days in it, you start to forget too."
+        </div>
+        <div class="foundation-body">
+          <p>Every year in the United States, approximately 20,000 young people age out of the foster care system. They leave with no family, no resources, and often no belief that their choices determine their outcomes — because experience has taught them otherwise.</p>
+          <p>Headwater Gives exists to take those young people into the same wilderness we take our executives. The same mountains. The same rivers. The same stars overhead. The same curriculum, the same campfire, the same conviction that the choice between what happens to you and what you do next belongs entirely to you.</p>
+        </div>
+        <div class="foundation-tithe">
+          <div class="foundation-tithe-label">The Ten Percent Tithe</div>
+          <p>Ten percent of every dollar the Headwater Institute earns flows directly to Headwater Gives. Not as charity appended to a business — as the business model itself. A headwater, by nature, gives. The water flows downhill to where it is most needed.</p>
+        </div>
+        <a href="https://headwatergives.org" class="foundation-link" target="_blank" rel="noopener" style="margin-top:28px">Visit Headwater Gives</a>
+      </div>
+      <div class="foundation-right reveal">
+        <div class="foundation-stat">
+          <div class="foundation-stat-num">20K</div>
+          <div class="foundation-stat-text">
+            <div class="foundation-stat-title">Young People Each Year</div>
+            <div class="foundation-stat-body">Age out of the foster care system annually in the United States, most without a safety net of any kind.</div>
+          </div>
+        </div>
+        <div class="foundation-stat">
+          <div class="foundation-stat-num">10%</div>
+          <div class="foundation-stat-text">
+            <div class="foundation-stat-title">The Tithe</div>
+            <div class="foundation-stat-body">Of all Institute revenue flows to Headwater Gives — funding expedition scholarships, ongoing mentorship, and the Agency Scholars program.</div>
+          </div>
+        </div>
+        <div class="foundation-stat">
+          <div class="foundation-stat-num">1</div>
+          <div class="foundation-stat-text">
+            <div class="foundation-stat-title">Source</div>
+            <div class="foundation-stat-body">The same Agency Model. The same wilderness. The same belief in every participant's capacity to choose — regardless of where they started.</div>
+          </div>
+        </div>
+        <div class="foundation-stat">
+          <div class="foundation-stat-num">∞</div>
+          <div class="foundation-stat-text">
+            <div class="foundation-stat-title">The Potential</div>
+            <div class="foundation-stat-body">A young person who discovers their own agency in the wilderness carries that knowledge for the rest of their life. The river flows long after the expedition ends.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="eyebrow light">Begin a Conversation</div>
+        <h2 class="section-title light">The river starts<br>somewhere.</h2>
+        <p class="section-body light">Every Headwater engagement begins with a conversation — about what you're building, what you're facing, and whether this is the right moment for the work. There is no script. There is no sales process. There is a person on the other end of this form who has read everything you've read here and who takes the inquiry seriously.</p>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <span class="contact-info-label">Location</span>
+            <span class="contact-info-value">Portland, Oregon</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Programs</span>
+            <span class="contact-info-value">Expeditions · Coaching · Retreats · Athletics</span>
+          </div>
+          <div class="contact-info-item">
+            <span class="contact-info-label">Foundation</span>
+            <a href="https://headwatergives.org" class="contact-info-value" target="_blank" rel="noopener">headwatergives.org</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <form name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="inquiry">
+          <p style="display:none"><input name="bot-field"></p>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="first">First Name</label>
+              <input class="form-input" type="text" id="first" name="first" placeholder="Barrett" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="last">Last Name</label>
+              <input class="form-input" type="text" id="last" name="last" placeholder="Christensen" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@yourcompany.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="org">Organization</label>
+            <input class="form-input" type="text" id="org" name="organization" placeholder="Company or context">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="program">I'm interested in</label>
+            <select class="form-select" id="program" name="program">
+              <option value="" disabled selected>Select a program</option>
+              <option value="executive">Executive &amp; Founder Leadership</option>
+              <option value="couples">Marriage &amp; Relationship Retreat</option>
+              <option value="athletes">Athletic Performance</option>
+              <option value="foundation">Headwater Gives / Foundation</option>
+              <option value="consulting">In-Person Coaching Visits</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">What's on your mind</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about where you are and what you're looking for. There are no wrong answers here."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send the Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="/assets/headwater-mark-light-footer.png" alt="" class="footer-logo-icon">Headwater Institute</div>
+        <div class="footer-tagline">Where the river begins.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Programs</div>
+        <ul class="footer-links">
+          <li><a href="/programs/executives">Executive Leadership</a></li>
+          <li><a href="/programs/couples">Marriage &amp; Relationship</a></li>
+          <li><a href="/programs/athletes">Athletic Performance</a></li>
+          <li><a href="/programs/foundation">Headwater Gives</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">The Institute</div>
+        <ul class="footer-links">
+          <li><a href="/model">The Agency Model</a></li>
+          <li><a href="/about">About Barrett</a></li>
+          <li><a href="/book">The Book</a></li>
+          <li><a href="/contact">Begin a Conversation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Foundation</div>
+        <ul class="footer-links">
+          <li><a href="https://headwatergives.org" target="_blank" rel="noopener">Headwater Gives</a></li>
+          <li><a href="https://headwatergives.org/scholars" target="_blank" rel="noopener">Agency Scholars</a></li>
+          <li><a href="https://headwatergives.org/give" target="_blank" rel="noopener">Give</a></li>
+          <li><a href="https://headwatergives.org/mentor" target="_blank" rel="noopener">Become a Mentor</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2025 Headwater Institute · Portland, Oregon · All rights reserved</span>
+      <a href="https://headwatergives.org" class="footer-gives" target="_blank" rel="noopener">↗ Headwater Gives — headwatergives.org</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ JAVASCRIPT ══ -->
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.08,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+reveals.forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
